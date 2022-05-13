@@ -5,18 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6241d32-75be-4eba-a85b-5f0dbe1be811" name="Changes" comment="start long way">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/Hero.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/blocks/Block.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/blocks/Box.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/blocks/Enemy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/levelConfig/blocks/1.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/levelConfig/maps/1.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/game/sokoban/menu.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/candy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/skull.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blocksLvl1.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/LvlChanger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/LvlChanger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/Hero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/blocks/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/blocks/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/blocks/Box.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/blocks/Box.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/blocks/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/blocks/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/game/sokoban/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game/sokoban/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/table2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/table2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/LvlChanger.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/LvlChanger.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/Main$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/elements/Hero.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/elements/Hero.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/elements/blocks/Block.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/elements/blocks/Block.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/elements/blocks/Box.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/elements/blocks/Box.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/elements/blocks/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/elements/blocks/Enemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/images/table2.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/images/table2.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +41,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -49,12 +64,15 @@
     </option>
   </component>
   <component name="ProjectId" id="28xgqUPiceQlsAXRE3wPAjjfpLK" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -109,7 +127,8 @@
       <workItem from="1652163883822" duration="12677000" />
       <workItem from="1652177301630" duration="109000" />
       <workItem from="1652407731306" duration="9020000" />
-      <workItem from="1652417698612" duration="3942000" />
+      <workItem from="1652417698612" duration="4056000" />
+      <workItem from="1652439106411" duration="11885000" />
     </task>
     <task id="LOCAL-00001" summary="start long way">
       <created>1652176686182</created>
@@ -150,6 +169,10 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/Sokoban" />
+    </ignored-roots>
     <MESSAGE value="start long way" />
     <option name="LAST_COMMIT_MESSAGE" value="start long way" />
   </component>
