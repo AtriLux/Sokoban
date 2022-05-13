@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6241d32-75be-4eba-a85b-5f0dbe1be811" name="Changes" comment="start long way" />
+    <list default="true" id="d6241d32-75be-4eba-a85b-5f0dbe1be811" name="Changes" comment="start long way">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/Hero.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/blocks/Block.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/blocks/Box.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/blocks/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/LvlChanger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/LvlChanger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/LvlChanger.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/LvlChanger.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,6 +41,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="28xgqUPiceQlsAXRE3wPAjjfpLK" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -37,12 +57,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -50,7 +72,7 @@
       <module name="sokoban" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="game.sokoban.*" />
+          <option name="PATTERN" value="game.sokoban.elements.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -85,6 +107,9 @@
       <updated>1652163846799</updated>
       <workItem from="1652163848077" duration="12000" />
       <workItem from="1652163883822" duration="12677000" />
+      <workItem from="1652177301630" duration="109000" />
+      <workItem from="1652407731306" duration="9020000" />
+      <workItem from="1652417698612" duration="3942000" />
     </task>
     <task id="LOCAL-00001" summary="start long way">
       <created>1652176686182</created>

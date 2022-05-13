@@ -12,4 +12,6 @@ module game.sokoban {
 
     opens game.sokoban to javafx.fxml;
     exports game.sokoban;
+    exports game.sokoban.elements;
+    opens game.sokoban.elements to javafx.fxml;
 }
