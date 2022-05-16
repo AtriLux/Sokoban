@@ -1,8 +1,10 @@
 package game.sokoban;
 
 import game.sokoban.elements.Hero;
+import game.sokoban.elements.blocks.Block;
 import game.sokoban.elements.blocks.Box;
 import game.sokoban.elements.blocks.Enemy;
+import game.sokoban.elements.blocks.Spike;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -22,73 +24,114 @@ import java.util.Arrays;
 import java.util.Objects;
 
 import static java.lang.Integer.parseInt;
+import static javafx.scene.input.KeyCode.ESCAPE;
 
 public class LvlChanger {
 
-    private int blockSize = 60;
-    private int WIDTH, HEIGHT;
+    private Stage stage;
+    private int blockSize = Block.blockSize;
+    private int WIDTH = 900, HEIGHT = 800;
     private int gWidth, gHeight;
     private int numLvl = 0;
     private int[][] matrix;
     private Hero hero;
-    private Controller gameController;
+    private ImageView candy;
+    private MenuController menuController;
+    private GameController gameController;
+    private boolean isOpenWindow = false;
+
     private ArrayList<Box> listBox = new ArrayList<>();
     private ArrayList<Enemy> listEnemy = new ArrayList<>();
+    private ArrayList<Spike> listSpike = new ArrayList<>();
 
-    Image imgFloor = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/floor2.png")), blockSize, blockSize, false, true);
-    Image imgWall = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/wall2.jpg")), blockSize, blockSize, false, true);
+    Image imgFloor = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/floor3.png")), blockSize, blockSize, false, true);
+    Image imgWall = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/wall3.png")), blockSize, blockSize, false, true);
     Image imgTable = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/table.png")), blockSize, blockSize, false, true);
-    Image imgEnemy = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/enemy.png")), 0.75*blockSize, blockSize, false, true);
-    Image imgHero = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/hero.png")), 0.75*blockSize, blockSize, false, true);
+    Image imgEnemy = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/enemy.png")), 0.7*blockSize, blockSize, false, true);
+    Image imgSpike = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/puddle.png")), 0.9*blockSize, 0.6*blockSize, false, true);
+    Image imgHero = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/hero.png")), 0.7*blockSize, blockSize, false, true);
     Image imgCandy = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/candy.png")), blockSize, blockSize, false, true);
 
-    LvlChanger(int w, int h) {
-        WIDTH = w;
-        HEIGHT = h;
+    LvlChanger(Stage primaryStage) { stage = primaryStage; }
+
+    public void startMenu() {
+        try {
+            FXMLLoader fxml = new FXMLLoader(Main.class.getResource("menu.fxml"));
+            Scene scene = new Scene(fxml.load(), WIDTH, HEIGHT);
+            menuController = fxml.getController();
+            menuController.initialize(this);
+            stage.setScene(scene);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void startGame(Stage stage) {
+    public void startGame(int num) {
         try {
             FXMLLoader fxml = new FXMLLoader(Main.class.getResource("game.fxml"));
             Scene scene = new Scene(fxml.load(), WIDTH, HEIGHT);
             stage.setScene(scene);
             gameController = fxml.getController();
-            loadLvl(gameController.getGameField(), 1);
+            gameController.initialize(this);
+            loadLvl(gameController.getGameField(), num);
             initKey(scene, gameController);
-
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    public void initKey(Scene scene, Controller controller) {
+    public void initKey(Scene scene, GameController controller) {
         scene.addEventFilter(KeyEvent.KEY_PRESSED, evt -> {
             Hero hero = getHero();
             KeyCode code = evt.getCode();
-            switch (code) {
-                case W:
-                    hero.move(hero.getX(), hero.getY() - 1, getMatrix(), getListBox(), getListEnemy());
-                    break;
-                case S:
-                    hero.move(hero.getX(), hero.getY() + 1, getMatrix(), getListBox(), getListEnemy());
-                    break;
-                case A:
-                    hero.move(hero.getX() - 1, hero.getY(), getMatrix(), getListBox(), getListEnemy());
-                    break;
-                case D:
-                    hero.move(hero.getX() + 1, hero.getY(), getMatrix(), getListBox(), getListEnemy());
-                    break;
-                case R:
-                    loadLvl(controller.getGameField(), getNumLvl());
-                    break;
-            }
+            if (!isOpenWindow)
+                switch (code) {
+                    case W:
+                        hero.move(hero.getX(), hero.getY() - 1, matrix, this, listBox, listEnemy, listSpike);
+                        break;
+                    case S:
+                        hero.move(hero.getX(), hero.getY() + 1, matrix, this, listBox, listEnemy, listSpike);
+                        break;
+                    case A:
+                        hero.move(hero.getX() - 1, hero.getY(), matrix, this, listBox, listEnemy, listSpike);
+                        break;
+                    case D:
+                        hero.move(hero.getX() + 1, hero.getY(), matrix, this, listBox, listEnemy, listSpike);
+                        break;
+                    case R:
+                        loadLvl(controller.getGameField(), getNumLvl());
+                        break;
+                }
+            if (code == ESCAPE && !controller.getWinWindow().isVisible())
+                if (controller.getMenuWindow().isVisible()) {
+                    controller.getMenuWindow().setVisible(false);
+                    reverseOpenWindow();
+                }
+                else {
+                    controller.getMenuWindow().setVisible(true);
+                    reverseOpenWindow();
+                }
         });
+    }
+
+    public void winGame() {
+        Pane pane = (Pane) gameController.getGameField().getChildren().get(1);
+        pane.getChildren().remove(candy);
+
+        reverseOpenWindow();
+        gameController.getWinWindow().toFront();
+        gameController.getWinWindow().setVisible(true);
     }
 
     public void clearLvl(Pane field) {
         field.getChildren().clear();
+        gameController.getWinWindow().setVisible(false);
+        gameController.getMenuWindow().setVisible(false);
         listEnemy.clear();
         listBox.clear();
+        listSpike.clear();
     }
 
     public void loadLvl(Pane field, int num) {
@@ -98,16 +141,27 @@ public class LvlChanger {
             case 1:
                 levelOne(field);
                 break;
+            case 2:
+                levelTwo(field);
+                break;
         }
     }
 
     public void levelOne(Pane field) {
         //create game field
-        matrix = new int[10][];
+        matrix = new int[9][];
         File fileMap = new File("levelConfig/maps/1.conf");
         field.getChildren().add(createGameField(fileMap));
         //create blocks and hero
         File fileBlock = new File("levelConfig/blocks/1.conf");
+        field.getChildren().add(createElements(fileBlock));
+    }
+
+    public void levelTwo(Pane field) {
+        matrix = new int[9][];
+        File fileMap = new File("levelConfig/maps/2.conf");
+        field.getChildren().add(createGameField(fileMap));
+        File fileBlock = new File("levelConfig/blocks/2.conf");
         field.getChildren().add(createElements(fileBlock));
     }
 
@@ -116,9 +170,8 @@ public class LvlChanger {
             BufferedReader in = new BufferedReader((new FileReader(fileMap.getAbsoluteFile())));
             String str;
             int i = 0;
-            while ((str = in.readLine()) != null) {
+            while ((str = in.readLine()) != null)
                 matrix[i++] = Arrays.stream(str.split(" ")).mapToInt(Integer::parseInt).toArray();
-            }
             in.close();
         } catch (Exception e) {
             e.printStackTrace();
@@ -137,7 +190,7 @@ public class LvlChanger {
         }
         //delete padding between cells
         grid.setVgap(0);
-        grid.setHgap(-1);
+        grid.setHgap(0);
         //grid to center
         gWidth = grid.getColumnCount() * blockSize;
         gHeight = grid.getRowCount() * blockSize;
@@ -147,7 +200,7 @@ public class LvlChanger {
     }
 
     public Pane createElements(File fileBlock) {
-        Pane elemBox = new Pane();
+        Pane elemBox = new Pane(), boxBox = new Pane(), enemyBox = new Pane(), spikeBox = new Pane();
         try {
             BufferedReader in = new BufferedReader((new FileReader(fileBlock.getAbsoluteFile())));
             String str;
@@ -157,26 +210,30 @@ public class LvlChanger {
                 switch (strSplit[0]) {
                     case "table":
                         img = new ImageView(imgTable);
-                        elemBox.getChildren().add(img);
+                        boxBox.getChildren().add(img);
                         listBox.add(new Box(parseInt(strSplit[1]), parseInt(strSplit[2]), img));
                         break;
                     case "enemy":
                         img = new ImageView(imgEnemy);
-                        elemBox.getChildren().add(img);
+                        enemyBox.getChildren().add(img);
                         listEnemy.add(new Enemy(parseInt(strSplit[1]), parseInt(strSplit[2]), img));
                         break;
+                    case "spike":
+                        img = new ImageView(imgSpike);
+                        spikeBox.getChildren().add(img);
+                        listSpike.add(new Spike(parseInt(strSplit[1]), parseInt(strSplit[2]), img));
+                        break;
                     case "candy":
-                        img = new ImageView(imgCandy);
-                        img.setTranslateX(parseInt(strSplit[1]) * blockSize);
-                        img.setTranslateY(parseInt(strSplit[2]) * blockSize);
-                        elemBox.getChildren().add(img);
+                        candy = new ImageView(imgCandy);
+                        candy.setTranslateX(parseInt(strSplit[1]) * blockSize);
+                        candy.setTranslateY(parseInt(strSplit[2]) * blockSize);
                         hero.setWinX(parseInt(strSplit[1]));
                         hero.setWinY(parseInt(strSplit[2]));
                         break;
                     case "hero":
                         img = new ImageView(imgHero);
-                        elemBox.getChildren().add(img);
-                        hero = new Hero(parseInt(strSplit[1]), parseInt(strSplit[2]), img);
+                        hero = new Hero(parseInt(strSplit[1]), parseInt(strSplit[2]), parseInt(strSplit[3]), img);
+                        gameController.setTurnsLeft(parseInt(strSplit[3]));
                         break;
                 }
             }
@@ -184,18 +241,14 @@ public class LvlChanger {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        elemBox.getChildren().addAll(candy, spikeBox, enemyBox, boxBox, hero.getImg());
         elemBox.setTranslateX((WIDTH - gWidth) / 2d);
         elemBox.setTranslateY((HEIGHT - 50 - gHeight) / 2d);
         return elemBox;
     }
 
-    public Hero getHero() { return hero; }
-
-    public int[][] getMatrix() { return matrix; }
-
-    public ArrayList<Box> getListBox() { return listBox; }
-
-    public ArrayList<Enemy> getListEnemy() { return listEnemy; }
-
+    public GameController getGameController() { return gameController; }
     public int getNumLvl() { return numLvl; }
+    public Hero getHero() { return hero; }
+    public void reverseOpenWindow() { isOpenWindow = !isOpenWindow; }
 }

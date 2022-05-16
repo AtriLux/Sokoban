@@ -5,16 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6241d32-75be-4eba-a85b-5f0dbe1be811" name="Changes" comment="start long way">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/levelConfig/blocks/1.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/levelConfig/maps/1.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/game/sokoban/menu.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/candy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/skull.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/levelConfig/blocks/2.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/levelConfig/maps/2.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/GameController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/blocks/Spike.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/floor3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/heroUp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/hero_16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/puddle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/wall3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/wall3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocksLvl1.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/levelConfig/blocks/1.conf" beforeDir="false" afterPath="$PROJECT_DIR$/levelConfig/blocks/1.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/levelConfig/maps/1.conf" beforeDir="false" afterPath="$PROJECT_DIR$/levelConfig/maps/1.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/MenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/LvlChanger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/LvlChanger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/Hero.java" afterDir="false" />
@@ -22,15 +27,19 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/blocks/Box.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/blocks/Box.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/blocks/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/blocks/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/game/sokoban/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game/sokoban/game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/table2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/table2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/game/sokoban/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game/sokoban/menu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/hero.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/hero.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/LvlChanger$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/LvlChanger$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/LvlChanger.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/LvlChanger.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/Main$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/elements/Hero.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/elements/Hero.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/elements/blocks/Block.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/elements/blocks/Block.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/elements/blocks/Box.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/elements/blocks/Box.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/elements/blocks/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/elements/blocks/Enemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/images/table2.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/images/table2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/menu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/images/hero.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/images/hero.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +49,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -52,6 +61,14 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -129,6 +146,9 @@
       <workItem from="1652407731306" duration="9020000" />
       <workItem from="1652417698612" duration="4056000" />
       <workItem from="1652439106411" duration="11885000" />
+      <workItem from="1652451293633" duration="52000" />
+      <workItem from="1652680419123" duration="8257000" />
+      <workItem from="1652692525984" duration="10303000" />
     </task>
     <task id="LOCAL-00001" summary="start long way">
       <created>1652176686182</created>

@@ -9,7 +9,7 @@ public class Box extends Block {
 
     public Box(int posX, int posY, ImageView img) {
         super(posX, posY, img);
-        errorX = -4;
+        errorX = -0.05*blockSize;
         errorY = 0;
         node.setTranslateX(posX * blockSize + errorX);
         node.setTranslateY(posY * blockSize + errorY);

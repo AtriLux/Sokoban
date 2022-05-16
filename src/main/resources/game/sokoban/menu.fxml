@@ -3,70 +3,75 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.03, 0.5" orientation="VERTICAL" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.sokoban.Controller">
-   <MenuBar fx:id="menu" maxHeight="25.0">
-      <Menu mnemonicParsing="false" text="File">
-         <MenuItem mnemonicParsing="false" text="New" />
-         <MenuItem mnemonicParsing="false" text="Open…" />
-         <Menu mnemonicParsing="false" text="Open Recent" />
-         <SeparatorMenuItem mnemonicParsing="false" />
-         <MenuItem mnemonicParsing="false" text="Close" />
-         <MenuItem mnemonicParsing="false" text="Save" />
-         <MenuItem mnemonicParsing="false" text="Save As…" />
-         <MenuItem mnemonicParsing="false" text="Revert" />
-         <SeparatorMenuItem mnemonicParsing="false" />
-         <MenuItem mnemonicParsing="false" text="Preferences…" />
-         <SeparatorMenuItem mnemonicParsing="false" />
-         <MenuItem mnemonicParsing="false" text="Quit" />
-      </Menu>
-      <Menu mnemonicParsing="false" text="Edit">
-         <MenuItem mnemonicParsing="false" text="Undo" />
-         <MenuItem mnemonicParsing="false" text="Redo" />
-         <SeparatorMenuItem mnemonicParsing="false" />
-         <MenuItem mnemonicParsing="false" text="Cut" />
-         <MenuItem mnemonicParsing="false" text="Copy" />
-         <MenuItem mnemonicParsing="false" text="Paste" />
-         <MenuItem mnemonicParsing="false" text="Delete" />
-         <SeparatorMenuItem mnemonicParsing="false" />
-         <MenuItem mnemonicParsing="false" text="Select All" />
-         <MenuItem mnemonicParsing="false" text="Unselect All" />
-      </Menu>
-      <Menu mnemonicParsing="false" text="Help">
-         <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-      </Menu>
-   </MenuBar>
-   <Pane fx:id="startField" minHeight="650.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: grey;">
-      <children>
-         <Button fx:id="startBtn" layoutX="374.0" layoutY="363.0" mnemonicParsing="false" text="Начать игру">
-            <font>
-               <Font size="22.0" />
-            </font></Button>
-         <Label layoutX="218.0" layoutY="100.0" text="Самый Офигительный Сокобан и...">
-            <font>
-               <Font size="29.0" />
-            </font></Label>
-         <Label layoutX="385.0" layoutY="308.0" text="(это рабочее название)" />
-         <Label layoutX="350.0" layoutY="152.0" text="SOSi">
-            <font>
-               <Font size="96.0" />
-            </font>
-         </Label>
-      </children></Pane>
-   <HBox id="HBox" alignment="CENTER_LEFT" maxHeight="25.0" prefHeight="146.0" prefWidth="703.0" spacing="5.0" style="-fx-background-color: grey;">
-      <padding>
-         <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-      </padding>
-      <Label maxHeight="1.7976931348623157E308" text="Left status" HBox.hgrow="ALWAYS" />
-      <Pane prefHeight="278.0" prefWidth="750.0" HBox.hgrow="ALWAYS" />
-      <Label fx:id="status" text="Right status" HBox.hgrow="NEVER" />
-   </HBox>
-</SplitPane>
+<AnchorPane minHeight="800.0" minWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.sokoban.MenuController">
+   <children>
+      <Pane fx:id="startField" minHeight="770.0" minWidth="900.0" style="-fx-background-color: grey;">
+         <children>
+            <Label layoutX="218.0" layoutY="153.0" text="Самый Офигительный Сокобан и...">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+            <Label layoutX="385.0" layoutY="361.0" text="(это рабочее название)" />
+            <Label layoutX="350.0" layoutY="205.0" text="SOSi">
+               <font>
+                  <Font size="96.0" />
+               </font>
+            </Label>
+            <Pane fx:id="btnPane" layoutX="340.0" layoutY="420.0" prefHeight="210.0" prefWidth="220.0">
+               <children>
+                  <Button fx:id="exitBtn" layoutY="160.0" minHeight="50.0" minWidth="220.0" mnemonicParsing="false" text="Выход">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="lvlBtn" layoutY="80.0" minHeight="50.0" minWidth="220.0" mnemonicParsing="false" text="Выбрать уровень">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="startBtn" minHeight="50.0" minWidth="220.0" mnemonicParsing="false" text="Начать игру">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane fx:id="lvlMenu" layoutX="200.0" layoutY="430.0" prefHeight="150.0" prefWidth="500.0" visible="false">
+               <children>
+                  <Button fx:id="undoBtn" layoutX="350.0" layoutY="100.0" minHeight="50.0" minWidth="150.0" mnemonicParsing="false" text="Назад">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="lvlOneBtn" minHeight="150.0" minWidth="150.0" mnemonicParsing="false" text="1">
+                     <font>
+                        <Font size="69.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="lvlTwoBtn" layoutX="175.0" minHeight="150.0" minWidth="150.0" mnemonicParsing="false" text="2">
+                     <font>
+                        <Font size="69.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <HBox id="HBox" alignment="CENTER_LEFT" layoutY="770.0" maxHeight="30.0" maxWidth="900.0" minHeight="30.0" minWidth="900.0" spacing="5.0" style="-fx-background-color: grey;">
+         <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </padding>
+         <children>
+            <Label maxHeight="1.7976931348623157E308" text="Left status" HBox.hgrow="ALWAYS" />
+            <Pane prefHeight="278.0" prefWidth="750.0" HBox.hgrow="ALWAYS" />
+            <Label fx:id="status" text="Right status" HBox.hgrow="NEVER" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

@@ -6,9 +6,9 @@ import javafx.scene.image.ImageView;
 import java.util.ArrayList;
 
 public abstract class Block {
-    int blockSize = 60;
+    public static int blockSize = 80;
     int x, y; // coords on field
-    int errorX, errorY; // image has different size
+    double errorX, errorY; // image has different size
     ImageView node;
     Image imgAfterKick;
     boolean isAlive = true;
@@ -19,16 +19,25 @@ public abstract class Block {
         node = img;
     }
 
-    public void move(int posX, int posY, int[][] matrix, ArrayList<Box> listBox, ArrayList<Enemy> listEnemy) {
+    public void move(int posX, int posY, int[][] matrix, ArrayList<Box> listBox, ArrayList<Enemy> listEnemy, ArrayList<Spike> listSpike) {
         boolean isFree = true;
         for (Box box: listBox) {
-            if ((posX == box.getX()) && (posY == box.getY())) {
+            if (posX == box.getX() && posY == box.getY()) {
                 isFree = false;
             }
         }
         for (Enemy enemy: listEnemy) {
-            if ((posX == enemy.getX()) && (posY == enemy.getY())) {
+            if (posX == enemy.getX() && posY == enemy.getY() && !isAlive) {
                 isFree = false;
+            }
+        }
+        for (Spike spike: listSpike) {
+            if (posX == spike.getX() && posY == spike.getY()) {
+                if (this instanceof Box) isFree = false;
+                if (this instanceof Enemy) {
+                    node.setImage(getImg());
+                    kill();
+                }
             }
         }
         if ((matrix[posX][posY] != 1) && (isFree)) {
