@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="800.0" minWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.sokoban.GameController">
+<AnchorPane minHeight="800.0" minWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.sokoban.controllers.GameController">
    <children>
       <Pane fx:id="gameField" minHeight="770.0" minWidth="900.0" style="-fx-background-color: grey;" />
       <Pane fx:id="winWindow" layoutX="275.0" layoutY="275.0" prefHeight="200.0" prefWidth="350.0" style="-fx-background-color: lightgrey; -fx-border-width: 5; -fx-border-color: darkgrey;" visible="false">

@@ -8,7 +8,7 @@ public class Main extends Application {
     public void start(Stage stage) {
         LvlChanger lvlChanger = new LvlChanger(stage);
         lvlChanger.startMenu();
-        stage.setTitle("Sokoban v. 0.4");
+        stage.setTitle("Sokoban v. 0.5");
         stage.setResizable(false);
         stage.show();
     }
