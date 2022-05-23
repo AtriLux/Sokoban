@@ -8,62 +8,82 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="800.0" minWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.sokoban.controllers.GameController">
+<AnchorPane fx:id="anchorPane" minHeight="800.0" minWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.sokoban.controllers.GameController">
    <children>
-      <Pane fx:id="gameField" minHeight="770.0" minWidth="900.0" style="-fx-background-color: grey;" />
+      <Pane fx:id="gameField" minHeight="770.0" minWidth="900.0" style="-fx-background-color: #222323;" />
       <Pane fx:id="winWindow" layoutX="275.0" layoutY="275.0" prefHeight="200.0" prefWidth="350.0" style="-fx-background-color: lightgrey; -fx-border-width: 5; -fx-border-color: darkgrey;" visible="false">
          <children>
             <Label alignment="CENTER" layoutX="-1.0" layoutY="27.0" prefHeight="38.0" prefWidth="353.0" text="Поздравляем!">
                <font>
-                  <Font size="26.0" />
+                  <Font name="Nineteen Ninety Three" size="26.0" />
                </font>
             </Label>
             <Label alignment="CENTER" layoutY="71.0" prefHeight="58.0" prefWidth="350.0" text="ЗАГАДКА РЕШЕНА">
                <font>
-                  <Font size="34.0" />
+                  <Font name="Nineteen Ninety Three" size="34.0" />
                </font>
             </Label>
-            <Button fx:id="resetWinBtn" layoutX="79.0" layoutY="145.0" minHeight="30.0" minWidth="80.0" mnemonicParsing="false" text="Еще раз" />
-            <Button fx:id="nextWinBtn" layoutX="189.0" layoutY="145.0" minHeight="30.0" minWidth="80.0" mnemonicParsing="false" text="Дальше" />
+            <Button fx:id="resetWinBtn" layoutX="79.0" layoutY="145.0" minHeight="30.0" minWidth="80.0" mnemonicParsing="false" text="Еще раз">
+               <font>
+                  <Font name="Nineteen Ninety Three" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="nextWinBtn" layoutX="189.0" layoutY="145.0" minHeight="30.0" minWidth="80.0" mnemonicParsing="false" text="Дальше">
+            <font>
+               <Font name="Nineteen Ninety Three" size="18.0" />
+            </font>
+            </Button>
          </children>
       </Pane>
       <Pane fx:id="menuWindow" layoutX="285.0" layoutY="185.0" prefHeight="350.0" prefWidth="350.0" style="-fx-background-color: lightgrey; -fx-border-width: 5; -fx-border-color: darkgrey;" visible="false">
          <children>
             <Label alignment="CENTER" layoutX="5.0" layoutY="32.0" prefHeight="38.0" prefWidth="341.0" text="ПАУЗА">
                <font>
-                  <Font size="26.0" />
+                  <Font name="Nineteen Ninety Three" size="26.0" />
                </font>
             </Label>
             <Button fx:id="resetMenuBtn" layoutX="90.0" layoutY="150.0" minHeight="40.0" minWidth="170.0" mnemonicParsing="false" text="Начать заново">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Nineteen Ninety Three" size="18.0" />
                </font>
             </Button>
             <Button fx:id="exitMenuBtn" layoutX="90.0" layoutY="270.0" minHeight="40.0" minWidth="170.0" mnemonicParsing="false" text="Выход из игры">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Nineteen Ninety Three" size="18.0" />
                </font>
             </Button>
             <Button fx:id="continueMenuBtn" layoutX="90.0" layoutY="90.0" minHeight="40.0" minWidth="170.0" mnemonicParsing="false" text="Продолжить">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Nineteen Ninety Three" size="18.0" />
                </font>
             </Button>
             <Button fx:id="mainMenuBtn" layoutX="90.0" layoutY="210.0" minHeight="40.0" minWidth="170.0" mnemonicParsing="false" text="Главное меню">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Nineteen Ninety Three" size="18.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <HBox id="HBox" alignment="CENTER_LEFT" layoutY="770.0" minHeight="30.0" minWidth="900.0" spacing="5.0" style="-fx-background-color: grey;">
+      <HBox id="HBox" alignment="CENTER_LEFT" layoutY="770.0" minHeight="30.0" minWidth="900.0" spacing="5.0" style="-fx-background-color: #222323;">
          <padding>
             <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
          </padding>
          <children>
-            <Label fx:id="statusTimer" maxHeight="1.7976931348623157E308" text="Время:" HBox.hgrow="ALWAYS" />
-            <Pane prefHeight="24.0" prefWidth="704.0" HBox.hgrow="ALWAYS" />
-            <Label fx:id="statusTurns" prefHeight="18.0" prefWidth="113.0" text="Ходов осталось:" HBox.hgrow="NEVER" />
+            <Label fx:id="statusTimer" maxHeight="1.7976931348623157E308" prefHeight="24.0" prefWidth="118.0" text=" Время:" textFill="WHITE" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="Nineteen Ninety Three" size="14.0" />
+               </font></Label>
+         <Pane prefHeight="24.0" prefWidth="585.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label fx:id="statusHelp" alignment="CENTER" prefHeight="24.0" prefWidth="602.0" text="R - заново, H - помощь, WASD - управление" textFill="WHITE">
+                     <font>
+                        <Font name="Nineteen Ninety Three" size="14.0" />
+                     </font></Label>
+               </children></Pane>
+            <Label fx:id="statusTurns" prefHeight="20.0" prefWidth="164.0" text="Ходов осталось:" textFill="WHITE" HBox.hgrow="NEVER">
+            <font>
+               <Font name="Nineteen Ninety Three" size="14.0" />
+            </font></Label>
          </children>
       </HBox>
    </children>

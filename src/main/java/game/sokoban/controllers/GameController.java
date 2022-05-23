@@ -4,10 +4,19 @@ import game.sokoban.LvlChanger;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.Arrays;
+
 public class GameController {
+
+    @FXML
+    private AnchorPane anchorPane;
 
     @FXML
     private Pane gameField;
@@ -17,6 +26,9 @@ public class GameController {
 
     @FXML
     private Label statusTimer;
+
+    @FXML
+    private Label statusHelp;
 
     @FXML
     private Pane winWindow;
@@ -42,14 +54,11 @@ public class GameController {
     @FXML
     private Button continueMenuBtn;
 
-
+    public AnchorPane getAnchorPane() { return anchorPane; }
     public Pane getGameField() { return gameField; }
-
     public Pane getWinWindow() { return winWindow; }
-
     public Pane getMenuWindow() { return menuWindow; }
-
-    public void setTurnsLeft(int count) { statusTurns.setText("Ходов осталось: " + count);}
+    public Label getStatusTimer() { return statusTimer; }
 
     @FXML
     public void initialize(LvlChanger lvlChanger) {
@@ -75,4 +84,24 @@ public class GameController {
         });
         exitMenuBtn.setOnAction(e -> System.exit(0));
     }
+
+    public void setStatusHelp(boolean isOpenHelp, int num) {
+        if (isOpenHelp) statusHelp.setText("R - заново, H - помощь, WASD - управление");
+        else
+            try {
+                File file = new File("levelConfig/help.txt");
+                BufferedReader in = new BufferedReader((new FileReader(file.getAbsoluteFile())));
+                int i = 1;
+                String str;
+                while ((str = in.readLine()) != null) {
+                    if (i == num) statusHelp.setText(str);
+                    i++;
+                }
+                in.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+    }
+
+    public void setTurnsLeft(int count) { statusTurns.setText("Ходов осталось: " + count);}
 }

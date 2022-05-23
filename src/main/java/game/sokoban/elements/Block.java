@@ -1,8 +1,10 @@
 package game.sokoban.elements;
 
 import game.sokoban.LvlChanger;
+import javafx.animation.TranslateTransition;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -28,26 +30,40 @@ public class Block {
     public void move(int posX, int posY, LvlChanger lvlChanger) {
         ArrayList<Block> listBoxAndEnemy = lvlChanger.getListBoxAndEnemy();
         ArrayList<Block> listSpike = lvlChanger.getListSpike();
-        int[][] matrix = lvlChanger.getMatrix();
+        char[][] matrix = lvlChanger.getMatrix();
         boolean isFree = true;
-        for (Block block: listBoxAndEnemy) {
-            if (posX == block.getX() && posY == block.getY() && isAlive) {
-                isFree = false;
-            }
-        }
-        for (Block spike: listSpike) {
-            if (posX == spike.getX() && posY == spike.getY()) {
-                //if (type == "Box") isFree = false;
-                if (type == "Enemy") kill();
-            }
-        }
-        if ((matrix[posX][posY] == 0) && (isFree)) {
+
+        for (Block block: listBoxAndEnemy)
+            if (posX == block.getX() && posY == block.getY() && isAlive) isFree = false;
+
+        for (Block spike: listSpike)
+            if (posX == spike.getX() && posY == spike.getY() && type.equals("Enemy")) kill();
+
+        if ((matrix[posX][posY] == '0') && (isFree)) {
+            moveAnimation(posX, posY, lvlChanger);
             x = posX;
             y = posY;
-            node.setTranslateX(x * blockSize + errPos);
-            node.setTranslateY(y * blockSize + errPos);
         }
-        else if (matrix[posX][posY] != 0 && type == "Enemy") kill();
+        else if (matrix[posX][posY] != 0 && type.equals("Enemy")) kill();
+    }
+
+    private void moveAnimation(int posX, int posY, LvlChanger lvlChanger) {
+        TranslateTransition anim = new TranslateTransition();
+        anim.setDuration(Duration.millis(lvlChanger.getHero().getAnimTime()));
+        anim.setNode(node);
+        if (posX < x) {
+            anim.setByX(-blockSize);
+        }
+        if (posX > x) {
+            anim.setByX(blockSize);
+        }
+        if (posY < y) {
+            anim.setByY(-blockSize);
+        }
+        if (posY > y) {
+            anim.setByY(blockSize);
+        }
+        anim.play();
     }
 
     public int getX() { return x; }

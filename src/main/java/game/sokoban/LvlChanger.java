@@ -4,6 +4,7 @@ import game.sokoban.controllers.GameController;
 import game.sokoban.controllers.MenuController;
 import game.sokoban.elements.Hero;
 import game.sokoban.elements.Block;
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -12,7 +13,10 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -35,11 +39,14 @@ public class LvlChanger {
     private MenuController menuController;
     private GameController gameController;
     private boolean isOpenWindow = false;
+    private boolean isOpenHelp = false;
+
+    private Timers timer;
 
     private int numLvl = 0;
-    private int[][] matrix;
+    private char[][] matrix;
     private Hero hero;
-    private ImageView exit, chest, key;
+    private ImageView chest, key;
     private ArrayList<Block> listBoxAndEnemy = new ArrayList<>(), listSpike = new ArrayList<>();
 
     Image imgFloor = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/tiles/tile_0017.png")), blockSize, blockSize, false, true);
@@ -61,7 +68,10 @@ public class LvlChanger {
     Image imgChest = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/tiles/tile_0057.png")), 0.7*blockSize, 0.7*blockSize, false, true);
     Image imgKey = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/tiles/tile_0090.png")), 0.4*blockSize, 0.4*blockSize, false, true);
 
-    LvlChanger(Stage primaryStage) { stage = primaryStage; }
+    LvlChanger(Stage primaryStage) {
+        stage = primaryStage;
+        stage.getIcons().add(imgChest);
+    }
 
     public void startMenu() {
         try {
@@ -112,6 +122,10 @@ public class LvlChanger {
                     case R:
                         loadLvl(controller.getGameField(), getNumLvl());
                         break;
+                    case H:
+                        controller.setStatusHelp(isOpenHelp, numLvl);
+                        isOpenHelp = !isOpenHelp;
+                        break;
                 }
             if (code == ESCAPE && !controller.getWinWindow().isVisible())
                 if (controller.getMenuWindow().isVisible()) {
@@ -125,10 +139,33 @@ public class LvlChanger {
         });
     }
 
-    public void winLevel() {
+    public void winLvl() {
+        timer.stop();
         reverseOpenWindow();
+        closeHelp();
         gameController.getWinWindow().toFront();
         gameController.getWinWindow().setVisible(true);
+    }
+
+    public void loseLvl() {
+        Rectangle rct = new Rectangle(0, 0, WIDTH, HEIGHT);
+        rct.setFill(Color.WHITE);
+        gameController.getAnchorPane().getChildren().add(rct);
+
+        FadeTransition anim = new FadeTransition(Duration.millis(1500),rct);
+        anim.setFromValue(0.0);
+        anim.setToValue(1.0);
+        anim.play();
+
+        anim.setOnFinished(e -> {
+            timer.stop();
+            loadLvl(gameController.getGameField(), numLvl);
+            FadeTransition anim1 = new FadeTransition(Duration.millis(1500),rct);
+            anim1.setFromValue(1.0);
+            anim1.setToValue(0.0);
+            anim1.play();
+            anim1.setOnFinished(ev -> gameController.getAnchorPane().getChildren().remove(rct));
+        });
     }
 
     public void clearLvl(Pane field) {
@@ -152,6 +189,8 @@ public class LvlChanger {
             //create blocks and hero
             File fileBlock = new File("levelConfig/blocks/" + numLvl + ".conf");
             field.getChildren().add(createElements(fileBlock));
+            //create local level timer
+            timer = new Timers(gameController.getStatusTimer());
         }
     }
 
@@ -162,14 +201,14 @@ public class LvlChanger {
             while (inLen.readLine() != null) {
                 i++;
             }
-            matrix = new int[i][];
+            matrix = new char[i][];
             inLen.close();
 
             BufferedReader in = new BufferedReader((new FileReader(fileMap.getAbsoluteFile())));
             String str;
             int j = 0;
             while ((str = in.readLine()) != null)
-                matrix[j++] = Arrays.stream(str.split(" ")).mapToInt(Integer::parseInt).toArray();
+                matrix[j++] = str.toCharArray();
             in.close();
         } catch (Exception e) {
             e.printStackTrace();
@@ -182,35 +221,41 @@ public class LvlChanger {
         for (int i = 0; i < mHeight; i++) {
             for (int j = 0; j < mWidth; j++) {
                 switch (matrix[i][j]) {
-                    case 0:
+                    case '0':
                         grid.add(new ImageView(imgFloor), i, j);
                         break;
-                    case 1:
+                    case '1':
                         grid.add(new ImageView(imgWall1), i, j);
                         break;
-                    case 2:
+                    case '2':
                         grid.add(new ImageView(imgWall2), i, j);
                         break;
-                    case 3:
+                    case '3':
                         grid.add(new ImageView(imgWall3), i, j);
                         break;
-                    case 4:
+                    case '4':
                         grid.add(new ImageView(imgWall4), i, j);
                         break;
-                    case 5:
+                    case '5':
                         grid.add(new ImageView(imgWall5), i, j);
                         break;
-                    case 6:
+                    case '6':
                         grid.add(new ImageView(imgWall6), i, j);
                         break;
-                    case 7:
+                    case '7':
                         grid.add(new ImageView(imgWall7), i, j);
                         break;
-                    case 8:
+                    case '8':
                         grid.add(new ImageView(imgWall8), i, j);
                         break;
-                    case 9:
+                    case '9':
                         grid.add(new ImageView(imgColumn9), i, j);
+                        break;
+                    case 'e':
+                        grid.add(new ImageView(imgExit), i, j);
+                        break;
+                    case 'E':
+                        grid.add(new ImageView(imgExitEnd), i, j);
                         break;
                 }
             }
@@ -250,14 +295,6 @@ public class LvlChanger {
                         spikeBox.getChildren().add(img);
                         listSpike.add(new Block(parseInt(strSplit[1]), parseInt(strSplit[2]), img, "Spike"));
                         break;
-                    case "exit":
-                        if (numLvl == 5) exit = new ImageView(imgExitEnd);
-                        else exit = new ImageView(imgExit);
-                        exit.setTranslateX(parseInt(strSplit[1]) * blockSize);
-                        exit.setTranslateY(parseInt(strSplit[2]) * blockSize);
-                        hero.setWinX(parseInt(strSplit[1]));
-                        hero.setWinY(parseInt(strSplit[2]));
-                        break;
                     case "chest":
                         chest = new ImageView(imgChest);
                         chest.setTranslateX(parseInt(strSplit[1]) * blockSize + errPos);
@@ -283,7 +320,7 @@ public class LvlChanger {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        elemBox.getChildren().addAll(exit, spikeBox, enemyBox, boxBox, hero.getImg());
+        elemBox.getChildren().addAll(spikeBox, enemyBox, boxBox, hero.getImg());
         if (key != null) elemBox.getChildren().add(key);
         if (chest != null) elemBox.getChildren().add(chest);
         elemBox.setTranslateX((WIDTH - gWidth) / 2d);
@@ -291,13 +328,17 @@ public class LvlChanger {
         return elemBox;
     }
 
+    public void closeHelp() {
+        gameController.setStatusHelp(true, numLvl);
+        isOpenHelp = false;
+    }
+    public void reverseOpenWindow() { isOpenWindow = !isOpenWindow; }
     public GameController getGameController() { return gameController; }
     public int getNumLvl() { return numLvl; }
     public Hero getHero() { return hero; }
-    public void reverseOpenWindow() { isOpenWindow = !isOpenWindow; }
     public ArrayList<Block> getListBoxAndEnemy() { return listBoxAndEnemy; }
     public ArrayList<Block> getListSpike() { return listSpike; }
-    public int[][] getMatrix() { return matrix; }
+    public char[][] getMatrix() { return matrix; }
     public ImageView getKey() { return key; }
     public ImageView getChest() { return chest; }
 }

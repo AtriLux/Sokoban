@@ -40,6 +40,12 @@ public class MenuController {
     private Button undoBtn;
 
     @FXML
+    private Button onlineBtn;
+
+    @FXML
+    private Button recordBtn;
+
+    @FXML
     private Button exitBtn;
 
     @FXML
