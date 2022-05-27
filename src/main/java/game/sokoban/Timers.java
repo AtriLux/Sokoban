@@ -37,4 +37,6 @@ public class Timers {
     }
 
     public void stop() { isActive = false; }
+
+    public int getTime() { return min*60 + sec - 1; }
 }

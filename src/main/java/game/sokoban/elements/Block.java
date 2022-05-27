@@ -23,6 +23,7 @@ public class Block {
         y = posY;
         type = typeName;
         node = img;
+        if (type.equals("Spike")) errPos = 0.05*blockSize;
         node.setTranslateX(posX * blockSize + errPos);
         node.setTranslateY(posY * blockSize + errPos);
     }

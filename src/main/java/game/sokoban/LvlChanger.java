@@ -7,12 +7,16 @@ import game.sokoban.elements.Block;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -23,7 +27,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
 
 import static java.lang.Integer.parseInt;
@@ -31,10 +34,11 @@ import static javafx.scene.input.KeyCode.ESCAPE;
 
 public class LvlChanger {
 
-    private Stage stage;
-    private int blockSize = Block.blockSize;
-    private double errPos = 0.15*blockSize;
-    private int WIDTH = 900, HEIGHT = 800;
+    private final Stage stage;
+    private final int blockSize = Block.blockSize;
+    private final double errPos = 0.15*blockSize;
+    private final int WIDTH = 900;
+    private final int HEIGHT = 800;
     private int gWidth, gHeight;
     private MenuController menuController;
     private GameController gameController;
@@ -42,6 +46,7 @@ public class LvlChanger {
     private boolean isOpenHelp = false;
 
     private Timers timer;
+    private final DataBase DB = new DataBase();
 
     private int numLvl = 0;
     private char[][] matrix;
@@ -61,7 +66,7 @@ public class LvlChanger {
     Image imgColumn9 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/tiles/tile_0030.png")), blockSize, blockSize, false, true);
     Image imgBox = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/tiles/tile_0096.png")), 0.7*blockSize, 0.7*blockSize, false, true);
     Image imgEnemy = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/tiles/tile_0010.png")), 0.7*blockSize, 0.7*blockSize, false, true);
-    Image imgSpike = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/tiles/tile_0018.png")), 0.7*blockSize, 0.7*blockSize, false, true);
+    Image imgSpike = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/tiles/tile_0018.png")), 0.9*blockSize, 0.9*blockSize, false, true);
     Image imgHero = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/tiles/tile_0160.png")), 0.7*blockSize, 0.7*blockSize, false, true);
     Image imgExit = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/tiles/tile_0052.png")), blockSize, blockSize, false, true);
     Image imgExitEnd = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/tiles/tile_0161.png")), blockSize, blockSize, false, true);
@@ -120,6 +125,7 @@ public class LvlChanger {
                         hero.move(hero.getX() + 1, hero.getY(), this);
                         break;
                     case R:
+                        timer.stop();
                         loadLvl(controller.getGameField(), getNumLvl());
                         break;
                     case H:
@@ -143,8 +149,25 @@ public class LvlChanger {
         timer.stop();
         reverseOpenWindow();
         closeHelp();
+        gameController.getSaveWinBtn().setDisable(false);
         gameController.getWinWindow().toFront();
         gameController.getWinWindow().setVisible(true);
+    }
+
+    public void saveRecordDB(String nick, VBox table) {
+        DB.add(nick, timer.getTime(), numLvl);
+        DB.writeToTable(table, numLvl);
+    }
+
+
+    public void clearRecordTable(VBox table) {
+        for (int i = 0; i < 10; i++) {
+            HBox line = (HBox) table.getChildren().get(i + 1);
+            Label nickname = (Label) line.getChildren().get(1);
+            Label time = (Label) line.getChildren().get(2);
+            nickname.setText("-");
+            time.setText("-");
+        }
     }
 
     public void loseLvl() {
@@ -335,6 +358,7 @@ public class LvlChanger {
     public void reverseOpenWindow() { isOpenWindow = !isOpenWindow; }
     public GameController getGameController() { return gameController; }
     public int getNumLvl() { return numLvl; }
+    public DataBase getDB() { return DB; }
     public Hero getHero() { return hero; }
     public ArrayList<Block> getListBoxAndEnemy() { return listBoxAndEnemy; }
     public ArrayList<Block> getListSpike() { return listSpike; }

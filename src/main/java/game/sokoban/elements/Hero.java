@@ -72,7 +72,7 @@ public class Hero {
                 x = posX;
                 y = posY;
             }
-            else if (matrix[posX][posY] == 'e') winAnimation(posX, posY, lvlChanger);
+            else if (matrix[posX][posY] == 'e' || matrix[posX][posY] == 'E') winAnimation(posX, posY, lvlChanger);
             else kickAnimation(posX,posY);
             turns--;
             lvlChanger.getGameController().setTurnsLeft(turns);
@@ -159,11 +159,6 @@ public class Hero {
         anim1.setToValue(0.0);
         anim1.play();
         anim1.setOnFinished(e -> lvlChanger.winLvl());
-    }
-
-    private void die(LvlChanger lvlChanger) {
-
-        lvlChanger.loadLvl(lvlChanger.getGameController().getGameField(), lvlChanger.getNumLvl());
     }
 
     public int getX() { return x; }

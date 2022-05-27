@@ -3,88 +3,105 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.VBox?>
 
 <AnchorPane fx:id="anchorPane" minHeight="800.0" minWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.sokoban.controllers.GameController">
-   <children>
-      <Pane fx:id="gameField" minHeight="770.0" minWidth="900.0" style="-fx-background-color: #222323;" />
-      <Pane fx:id="winWindow" layoutX="275.0" layoutY="275.0" prefHeight="200.0" prefWidth="350.0" style="-fx-background-color: lightgrey; -fx-border-width: 5; -fx-border-color: darkgrey;" visible="false">
-         <children>
-            <Label alignment="CENTER" layoutX="-1.0" layoutY="27.0" prefHeight="38.0" prefWidth="353.0" text="Поздравляем!">
-               <font>
-                  <Font name="Nineteen Ninety Three" size="26.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutY="71.0" prefHeight="58.0" prefWidth="350.0" text="ЗАГАДКА РЕШЕНА">
-               <font>
-                  <Font name="Nineteen Ninety Three" size="34.0" />
-               </font>
-            </Label>
-            <Button fx:id="resetWinBtn" layoutX="79.0" layoutY="145.0" minHeight="30.0" minWidth="80.0" mnemonicParsing="false" text="Еще раз">
-               <font>
-                  <Font name="Nineteen Ninety Three" size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="nextWinBtn" layoutX="189.0" layoutY="145.0" minHeight="30.0" minWidth="80.0" mnemonicParsing="false" text="Дальше">
-            <font>
-               <Font name="Nineteen Ninety Three" size="18.0" />
-            </font>
-            </Button>
-         </children>
+
+   <Pane fx:id="gameField" minHeight="770.0" minWidth="900.0" style="-fx-background-color: #222323;" />
+
+   <Pane fx:id="recordWindow" layoutX="266.0" layoutY="143.0" prefHeight="490.0" prefWidth="368.0" style="-fx-background-color: lightgrey; -fx-border-width: 5; -fx-border-color: darkgrey;" visible="false">
+      <Label alignment="TOP_LEFT" layoutX="22.0" layoutY="400.0" prefHeight="20.0" prefWidth="136.0" styleClass="text_small" stylesheets="@style.css" text="Введите свое имя:" />
+      <Label alignment="CENTER" layoutX="9.0" layoutY="14.0" prefHeight="58.0" prefWidth="350.0" styleClass="text_large" stylesheets="@style.css" text="ТАБЛИЦА РЕКОРДОВ" />
+      <Button fx:id="undoRecordBtn" layoutX="37.0" layoutY="436.0" minHeight="30.0" minWidth="130.0" mnemonicParsing="false" stylesheets="@style.css" text="Назад" />
+      <Button fx:id="saveRecordBtn" layoutX="196.0" layoutY="436.0" maxWidth="115.0" minHeight="30.0" minWidth="130.0" mnemonicParsing="false" stylesheets="@style.css" text="Сохранить" />
+      <TextField fx:id="nickTextField" layoutX="159.0" layoutY="397.0" prefHeight="25.0" prefWidth="184.0" />
+      <VBox fx:id="recordTable" layoutX="22.0" layoutY="72.0" prefHeight="310.0" prefWidth="324.0" style="-fx-background-color: #222323; -fx-border-width: 5; -fx-border-color: darkgrey;">
+         <HBox maxHeight="28.0" prefHeight="38.0" prefWidth="314.0" style="-fx-border-color: darkgrey;">
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="№" textAlignment="CENTER" textFill="LIGHTGRAY" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="НИКНЕЙМ" textAlignment="CENTER" textFill="LIGHTGRAY" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="ВРЕМЯ (СЕК)" textAlignment="CENTER" textFill="LIGHTGRAY" />
+         </HBox>
+         <HBox maxHeight="28.0" prefHeight="38.0" prefWidth="314.0" style="-fx-border-color: darkgrey;">
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="1" textAlignment="CENTER" textFill="LIGHTGRAY" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="-" textAlignment="CENTER" textFill="LIGHTGRAY" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="-" textAlignment="CENTER" textFill="LIGHTGRAY" />
+         </HBox>
+         <HBox maxHeight="28.0" prefHeight="38.0" prefWidth="314.0" style="-fx-border-color: darkgrey;">
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="2" textAlignment="CENTER" textFill="LIGHTGRAY" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="-" textAlignment="CENTER" textFill="LIGHTGRAY" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="-" textAlignment="CENTER" textFill="LIGHTGRAY" />
+         </HBox>
+         <HBox maxHeight="28.0" prefHeight="38.0" prefWidth="314.0" style="-fx-border-color: darkgrey;">
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="3" textAlignment="CENTER" textFill="LIGHTGRAY" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="-" textAlignment="CENTER" textFill="LIGHTGRAY" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="-" textAlignment="CENTER" textFill="LIGHTGRAY" />
+         </HBox>
+         <HBox maxHeight="28.0" prefHeight="38.0" prefWidth="314.0" style="-fx-border-color: darkgrey;">
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="4" textAlignment="CENTER" textFill="LIGHTGRAY" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="-" textAlignment="CENTER" textFill="LIGHTGRAY" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="-" textAlignment="CENTER" textFill="LIGHTGRAY" />
+         </HBox>
+         <HBox maxHeight="28.0" prefHeight="38.0" prefWidth="314.0" style="-fx-border-color: darkgrey;">
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="5" textAlignment="CENTER" textFill="LIGHTGRAY" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="-" textAlignment="CENTER" textFill="LIGHTGRAY" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="-" textAlignment="CENTER" textFill="LIGHTGRAY" />
+         </HBox>
+         <HBox maxHeight="28.0" prefHeight="38.0" prefWidth="314.0" style="-fx-border-color: darkgrey;">
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="6" textAlignment="CENTER" textFill="LIGHTGRAY" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="-" textAlignment="CENTER" textFill="LIGHTGRAY" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="-" textAlignment="CENTER" textFill="LIGHTGRAY" />
+         </HBox>
+         <HBox maxHeight="28.0" prefHeight="38.0" prefWidth="314.0" style="-fx-border-color: darkgrey;">
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="7" textAlignment="CENTER" textFill="LIGHTGRAY" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="-" textAlignment="CENTER" textFill="LIGHTGRAY" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="-" textAlignment="CENTER" textFill="LIGHTGRAY" />
+         </HBox>
+         <HBox maxHeight="28.0" prefHeight="38.0" prefWidth="314.0" style="-fx-border-color: darkgrey;">
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="8" textAlignment="CENTER" textFill="LIGHTGRAY" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="-" textAlignment="CENTER" textFill="LIGHTGRAY" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="-" textAlignment="CENTER" textFill="LIGHTGRAY" />
+         </HBox>
+         <HBox maxHeight="28.0" prefHeight="38.0" prefWidth="314.0" style="-fx-border-color: darkgrey;">
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="9" textAlignment="CENTER" textFill="LIGHTGRAY" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="-" textAlignment="CENTER" textFill="LIGHTGRAY" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="-" textAlignment="CENTER" textFill="LIGHTGRAY" />
+         </HBox>
+         <HBox maxHeight="28.0" prefHeight="38.0" prefWidth="314.0" style="-fx-border-color: darkgrey;">
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="10" textAlignment="CENTER" textFill="LIGHTGRAY" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="-" textAlignment="CENTER" textFill="LIGHTGRAY" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: darkgrey; -fx-border-width: 0 1 0 0;" styleClass="text_small" stylesheets="@style.css" text="-" textAlignment="CENTER" textFill="LIGHTGRAY" />
+         </HBox>
+      </VBox>
+   </Pane>
+
+   <Pane fx:id="winWindow" layoutX="275.0" layoutY="275.0" prefHeight="200.0" prefWidth="350.0" style="-fx-background-color: lightgrey; -fx-border-width: 5; -fx-border-color: darkgrey;" visible="false">
+      <Label alignment="CENTER" layoutX="-1.0" layoutY="27.0" prefHeight="38.0" prefWidth="353.0" stylesheets="@style.css" text="Поздравляем!" />
+      <Label alignment="CENTER" layoutY="71.0" prefHeight="58.0" prefWidth="350.0" styleClass="text_large" stylesheets="@style.css" text="ЗАГАДКА РЕШЕНА" />
+      <Button fx:id="resetWinBtn" layoutX="27.0" layoutY="145.0" minHeight="40.0" minWidth="90.0" mnemonicParsing="false" stylesheets="@style.css" text="Еще раз" />
+      <Button fx:id="nextWinBtn" layoutX="235.0" layoutY="145.0" minHeight="40.0" minWidth="90.0" mnemonicParsing="false" stylesheets="@style.css" text="Дальше" />
+      <Button fx:id="saveWinBtn" layoutX="133.0" layoutY="145.0" maxWidth="90.0" minHeight="40.0" minWidth="90.0" mnemonicParsing="false" styleClass="text_small" stylesheets="@style.css" text="Сохранить рекорд" textAlignment="CENTER" wrapText="true" />
+   </Pane>
+
+   <Pane fx:id="menuWindow" layoutX="285.0" layoutY="185.0" prefHeight="350.0" prefWidth="350.0" style="-fx-background-color: lightgrey; -fx-border-width: 5; -fx-border-color: darkgrey;" visible="false">
+      <Label alignment="CENTER" layoutX="5.0" layoutY="32.0" prefHeight="38.0" prefWidth="341.0" styleClass="text_large" stylesheets="@style.css" text="ПАУЗА" />
+      <Button fx:id="resetMenuBtn" layoutX="90.0" layoutY="150.0" minHeight="40.0" minWidth="170.0" mnemonicParsing="false" stylesheets="@style.css" text="Начать заново" />
+      <Button fx:id="exitMenuBtn" layoutX="90.0" layoutY="270.0" minHeight="40.0" minWidth="170.0" mnemonicParsing="false" stylesheets="@style.css" text="Выход из игры" />
+      <Button fx:id="continueMenuBtn" layoutX="90.0" layoutY="90.0" minHeight="40.0" minWidth="170.0" mnemonicParsing="false" stylesheets="@style.css" text="Продолжить" />
+      <Button fx:id="mainMenuBtn" layoutX="90.0" layoutY="210.0" minHeight="40.0" minWidth="170.0" mnemonicParsing="false" stylesheets="@style.css" text="Главное меню" />
+   </Pane>
+
+   <HBox id="HBox" alignment="CENTER_LEFT" layoutY="770.0" minHeight="30.0" minWidth="900.0" spacing="5.0" style="-fx-background-color: #222323;">
+      <padding>
+         <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+      </padding>
+      <Label fx:id="statusTimer" maxHeight="1.7976931348623157E308" prefHeight="24.0" prefWidth="118.0" styleClass="text_small" stylesheets="@style.css" text=" Время:" textFill="WHITE" HBox.hgrow="ALWAYS" />
+      <Pane prefHeight="24.0" prefWidth="585.0" HBox.hgrow="ALWAYS">
+         <Label fx:id="statusHelp" alignment="CENTER" prefHeight="24.0" prefWidth="602.0" styleClass="text_small" stylesheets="@style.css" text="R - заново, H - помощь, WASD - управление" textFill="WHITE" />
       </Pane>
-      <Pane fx:id="menuWindow" layoutX="285.0" layoutY="185.0" prefHeight="350.0" prefWidth="350.0" style="-fx-background-color: lightgrey; -fx-border-width: 5; -fx-border-color: darkgrey;" visible="false">
-         <children>
-            <Label alignment="CENTER" layoutX="5.0" layoutY="32.0" prefHeight="38.0" prefWidth="341.0" text="ПАУЗА">
-               <font>
-                  <Font name="Nineteen Ninety Three" size="26.0" />
-               </font>
-            </Label>
-            <Button fx:id="resetMenuBtn" layoutX="90.0" layoutY="150.0" minHeight="40.0" minWidth="170.0" mnemonicParsing="false" text="Начать заново">
-               <font>
-                  <Font name="Nineteen Ninety Three" size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="exitMenuBtn" layoutX="90.0" layoutY="270.0" minHeight="40.0" minWidth="170.0" mnemonicParsing="false" text="Выход из игры">
-               <font>
-                  <Font name="Nineteen Ninety Three" size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="continueMenuBtn" layoutX="90.0" layoutY="90.0" minHeight="40.0" minWidth="170.0" mnemonicParsing="false" text="Продолжить">
-               <font>
-                  <Font name="Nineteen Ninety Three" size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="mainMenuBtn" layoutX="90.0" layoutY="210.0" minHeight="40.0" minWidth="170.0" mnemonicParsing="false" text="Главное меню">
-               <font>
-                  <Font name="Nineteen Ninety Three" size="18.0" />
-               </font>
-            </Button>
-         </children>
-      </Pane>
-      <HBox id="HBox" alignment="CENTER_LEFT" layoutY="770.0" minHeight="30.0" minWidth="900.0" spacing="5.0" style="-fx-background-color: #222323;">
-         <padding>
-            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-         </padding>
-         <children>
-            <Label fx:id="statusTimer" maxHeight="1.7976931348623157E308" prefHeight="24.0" prefWidth="118.0" text=" Время:" textFill="WHITE" HBox.hgrow="ALWAYS">
-               <font>
-                  <Font name="Nineteen Ninety Three" size="14.0" />
-               </font></Label>
-         <Pane prefHeight="24.0" prefWidth="585.0" HBox.hgrow="ALWAYS">
-               <children>
-                  <Label fx:id="statusHelp" alignment="CENTER" prefHeight="24.0" prefWidth="602.0" text="R - заново, H - помощь, WASD - управление" textFill="WHITE">
-                     <font>
-                        <Font name="Nineteen Ninety Three" size="14.0" />
-                     </font></Label>
-               </children></Pane>
-            <Label fx:id="statusTurns" prefHeight="20.0" prefWidth="164.0" text="Ходов осталось:" textFill="WHITE" HBox.hgrow="NEVER">
-            <font>
-               <Font name="Nineteen Ninety Three" size="14.0" />
-            </font></Label>
-         </children>
-      </HBox>
-   </children>
+      <Label fx:id="statusTurns" prefHeight="20.0" prefWidth="164.0" styleClass="text_small" stylesheets="@style.css" text="Ходов осталось:" textFill="WHITE" HBox.hgrow="NEVER" />
+   </HBox>
 </AnchorPane>

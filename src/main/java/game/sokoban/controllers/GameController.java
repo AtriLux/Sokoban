@@ -4,8 +4,10 @@ import game.sokoban.LvlChanger;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.BufferedReader;
@@ -37,6 +39,24 @@ public class GameController {
     private Button resetWinBtn;
 
     @FXML
+    private Button saveWinBtn;
+
+    @FXML
+    private Pane recordWindow;
+
+    @FXML
+    private VBox recordTable;
+
+    @FXML
+    private TextField nickTextField;
+
+    @FXML
+    private Button undoRecordBtn;
+
+    @FXML
+    private Button saveRecordBtn;
+
+    @FXML
     private Button nextWinBtn;
 
     @FXML
@@ -59,12 +79,34 @@ public class GameController {
     public Pane getWinWindow() { return winWindow; }
     public Pane getMenuWindow() { return menuWindow; }
     public Label getStatusTimer() { return statusTimer; }
+    public Button getSaveWinBtn() { return saveWinBtn; }
 
     @FXML
     public void initialize(LvlChanger lvlChanger) {
         nextWinBtn.setOnAction(e -> {
             lvlChanger.loadLvl(gameField,lvlChanger.getNumLvl()+1);
             lvlChanger.reverseOpenWindow();
+        });
+        saveWinBtn.setOnAction(e -> {
+            saveRecordBtn.setDisable(false);
+            lvlChanger.clearRecordTable(recordTable);
+            lvlChanger.getDB().writeToTable(recordTable, lvlChanger.getNumLvl());
+            recordWindow.toFront();
+            recordWindow.setVisible(true);
+        });
+        undoRecordBtn.setOnAction(e -> {
+            if (saveRecordBtn.isDisable()) saveWinBtn.setDisable(true);
+            recordWindow.setVisible(false);
+        });
+        saveRecordBtn.setOnAction(e -> {
+            if (!nickTextField.getText().equals("") && !nickTextField.getText().contains(" ")) {
+                lvlChanger.saveRecordDB(nickTextField.getText(), recordTable);
+                saveRecordBtn.setDisable(true);
+            }
+            else nickTextField.setText("введите имя (без пробелов)!");
+        });
+        nickTextField.setOnMouseClicked(e -> {
+            if (nickTextField.getText().equals("введите имя (без пробелов)!")) nickTextField.setText("");
         });
         resetWinBtn.setOnAction(e -> {
             lvlChanger.loadLvl(gameField,lvlChanger.getNumLvl());

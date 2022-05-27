@@ -3,9 +3,8 @@ package game.sokoban.controllers;
 import game.sokoban.LvlChanger;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
+import javafx.scene.layout.VBox;
 
 public class MenuController {
 
@@ -46,11 +45,49 @@ public class MenuController {
     private Button recordBtn;
 
     @FXML
+    private Pane recordPane;
+
+    @FXML
+    private Button recordBtn1;
+
+    @FXML
+    private Button recordBtn2;
+
+    @FXML
+    private Button recordBtn3;
+
+    @FXML
+    private Button recordBtn4;
+
+    @FXML
+    private Button recordBtn5;
+
+    @FXML
+    private VBox recordTable;
+
+    @FXML
+    private Button undoRecordBtn;
+
+    @FXML
     private Button exitBtn;
 
     @FXML
     public void initialize(LvlChanger lvlChanger) {
         startBtn.setOnAction(e -> lvlChanger.startGame(1));
+        recordBtn.setOnAction(e -> {
+            lvlChanger.clearRecordTable(recordTable);
+            recordPane.setVisible(true);
+            btnPane.setVisible(false);
+        });
+        recordBtn1.setOnAction(e -> lvlChanger.getDB().writeToTable(recordTable, 1));
+        recordBtn2.setOnAction(e -> lvlChanger.getDB().writeToTable(recordTable, 2));
+        recordBtn3.setOnAction(e -> lvlChanger.getDB().writeToTable(recordTable, 3));
+        recordBtn4.setOnAction(e -> lvlChanger.getDB().writeToTable(recordTable, 4));
+        recordBtn5.setOnAction(e -> lvlChanger.getDB().writeToTable(recordTable, 5));
+        undoRecordBtn.setOnAction(e -> {
+            recordPane.setVisible(false);
+            btnPane.setVisible(true);
+        });
         lvlBtn.setOnAction(e -> {
             btnPane.setVisible(false);
             lvlMenu.setVisible(true);

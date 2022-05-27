@@ -9,7 +9,7 @@ public class Main extends Application {
         javafx.scene.text.Font.loadFont(getClass().getResource("/fonts/NineteenNinetyThree.ttf").toExternalForm(), 16f);
         LvlChanger lvlChanger = new LvlChanger(stage);
         lvlChanger.startMenu();
-        stage.setTitle("Sokoban v. 0.6");
+        stage.setTitle("Sokoban v. 0.7");
         stage.setResizable(false);
         stage.show();
     }

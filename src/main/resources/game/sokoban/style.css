@@ -1,0 +1,21 @@
+.button {
+    -fx-font-family: "Nineteen Ninety Three";
+    -fx-font-size: 15;
+    -fx-background-color: #ded6ab;
+    -fx-border-width: 2;
+    -fx-border-color: #775c2a;
+    -fx-border-insets: 2;
+    -fx-border-style: dashed;
+}
+.label {
+    -fx-font-family: "Nineteen Ninety Three";
+    -fx-font-size: 22;
+}
+.text_large {
+    -fx-font-family: "Nineteen Ninety Three";
+    -fx-font-size: 26;
+}
+.text_small {
+    -fx-font-family: "Nineteen Ninety Three";
+    -fx-font-size: 11;
+}

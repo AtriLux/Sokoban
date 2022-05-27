@@ -9,6 +9,7 @@ module game.sokoban {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires java.sql;
 
     opens game.sokoban to javafx.fxml;
     exports game.sokoban;
