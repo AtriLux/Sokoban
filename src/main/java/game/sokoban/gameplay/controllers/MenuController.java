@@ -1,10 +1,18 @@
-package game.sokoban.controllers;
+package game.sokoban.gameplay.controllers;
 
-import game.sokoban.LvlChanger;
+import game.sokoban.clientServer.Message;
+import game.sokoban.gameplay.Launcher;
+import game.sokoban.gameplay.LvlChanger;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.ByteBuffer;
 
 public class MenuController {
 
@@ -69,11 +77,23 @@ public class MenuController {
     private Button undoRecordBtn;
 
     @FXML
+    private Pane onlinePane;
+
+    @FXML
+    private Label onlineLabel;
+
+    @FXML
+    private Button undoOnlineBtn;
+
+    @FXML
+    private Button readyOnlineBtn;
+
+    @FXML
     private Button exitBtn;
 
     @FXML
-    public void initialize(LvlChanger lvlChanger) {
-        startBtn.setOnAction(e -> lvlChanger.startGame(1));
+    public void initialize(LvlChanger lvlChanger, Launcher launcher) {
+        startBtn.setOnAction(e -> lvlChanger.startGame(0));
         recordBtn.setOnAction(e -> {
             lvlChanger.clearRecordTable(recordTable);
             recordPane.setVisible(true);
@@ -101,6 +121,53 @@ public class MenuController {
             btnPane.setVisible(true);
             lvlMenu.setVisible(false);
         });
+        onlineBtn.setOnAction(e -> {
+            try {
+                if (!isOnline) {
+                    readyOnlineBtn.setDisable(true);
+                    onlineLabel.setText("Ожидание игрока...");
+                }
+                onlinePane.setVisible(true);
+                btnPane.setVisible(false);
+                OutputStream os = launcher.getSocket().getOutputStream();
+                ByteBuffer buffer = ByteBuffer.allocate(Integer.BYTES);
+                buffer.putInt(1);
+                os.write(buffer.array());
+                os.flush();
+            }
+            catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
+        readyOnlineBtn.setOnAction(e -> {
+            try {
+                readyOnlineBtn.setDisable(true);
+                OutputStream os = launcher.getSocket().getOutputStream();
+                os.write(new Message(launcher.getIdOpponent(),2).getBytes());
+                os.flush();
+            }
+            catch (IOException ex) {
+            ex.printStackTrace();
+            }
+        });
+        undoOnlineBtn.setOnAction(e -> {
+            onlinePane.setVisible(false);
+            btnPane.setVisible(true);
+        });
         exitBtn.setOnAction(e -> System.exit(0));
     }
+
+    boolean isOnline = false;
+
+    public void setOnlineOpponent() {
+        isOnline = true;
+        Platform.runLater(() -> onlineLabel.setText("Игрок найден!"));
+        readyOnlineBtn.setDisable(false);
+    }
+
+    public void setOnlineReady() {
+        Platform.runLater(() -> onlineLabel.setText("Игрок готов!"));
+    }
+
+    public void setDisableOnlineBtn() { onlineBtn.setDisable(true); }
 }

@@ -1,6 +1,8 @@
-package game.sokoban.controllers;
+package game.sokoban.gameplay.controllers;
 
-import game.sokoban.LvlChanger;
+import game.sokoban.clientServer.Message;
+import game.sokoban.gameplay.Launcher;
+import game.sokoban.gameplay.LvlChanger;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -8,81 +10,75 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+import javafx.scene.paint.Color;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.util.Arrays;
+import java.io.*;
 
 public class GameController {
 
     @FXML
     private AnchorPane anchorPane;
-
     @FXML
     private Pane gameField;
-
     @FXML
     private Label statusTurns;
-
     @FXML
     private Label statusTimer;
-
     @FXML
     private Label statusHelp;
-
     @FXML
     private Pane winWindow;
-
     @FXML
     private Button resetWinBtn;
-
     @FXML
     private Button saveWinBtn;
-
     @FXML
     private Pane recordWindow;
-
     @FXML
     private VBox recordTable;
-
     @FXML
     private TextField nickTextField;
-
     @FXML
     private Button undoRecordBtn;
-
     @FXML
     private Button saveRecordBtn;
-
     @FXML
     private Button nextWinBtn;
-
     @FXML
     private Pane menuWindow;
-
     @FXML
     private Button exitMenuBtn;
-
     @FXML
     private Button mainMenuBtn;
-
     @FXML
     private Button resetMenuBtn;
-
     @FXML
     private Button continueMenuBtn;
+    @FXML
+    private Pane giveupWindow;
+    @FXML
+    private Button noOnlineBtn;
+    @FXML
+    private Button yesOnlineBtn;
+    @FXML
+    private Pane winOnlineWindow;
+    @FXML
+    private Button saveOnlineWinBtn;
+    @FXML
+    private Button exitOnlineWinBtn;
 
     public AnchorPane getAnchorPane() { return anchorPane; }
     public Pane getGameField() { return gameField; }
     public Pane getWinWindow() { return winWindow; }
     public Pane getMenuWindow() { return menuWindow; }
+    public Pane getGiveupWindow() { return giveupWindow; }
+    public Pane getWinOnlineWindow() { return winOnlineWindow; }
     public Label getStatusTimer() { return statusTimer; }
+    public Label getStatusHelp() { return statusHelp; }
     public Button getSaveWinBtn() { return saveWinBtn; }
 
     @FXML
-    public void initialize(LvlChanger lvlChanger) {
+    public void initialize(LvlChanger lvlChanger, Launcher launcher) {
         nextWinBtn.setOnAction(e -> {
             lvlChanger.loadLvl(gameField,lvlChanger.getNumLvl()+1);
             lvlChanger.reverseOpenWindow();
@@ -95,7 +91,10 @@ public class GameController {
             recordWindow.setVisible(true);
         });
         undoRecordBtn.setOnAction(e -> {
-            if (saveRecordBtn.isDisable()) saveWinBtn.setDisable(true);
+            if (saveRecordBtn.isDisable()) {
+                saveWinBtn.setDisable(true);
+                saveOnlineWinBtn.setDisable(true);
+            }
             recordWindow.setVisible(false);
         });
         saveRecordBtn.setOnAction(e -> {
@@ -125,6 +124,30 @@ public class GameController {
             lvlChanger.reverseOpenWindow();
         });
         exitMenuBtn.setOnAction(e -> System.exit(0));
+        yesOnlineBtn.setOnAction(e -> {
+            try {
+                if (statusHelp.getTextFill() == Color.WHITE) {
+                    OutputStream os = launcher.getSocket().getOutputStream();
+                    os.write(new Message(launcher.getIdOpponent(), 4).getBytes());
+                    os.flush();
+                }
+                lvlChanger.startMenu();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
+        noOnlineBtn.setOnAction(e -> {
+            giveupWindow.setVisible(false);
+            lvlChanger.reverseOpenWindow();
+        });
+        saveOnlineWinBtn.setOnAction(e -> {
+            saveRecordBtn.setDisable(false);
+            lvlChanger.clearRecordTable(recordTable);
+            lvlChanger.getDB().writeToTable(recordTable, lvlChanger.getNumLvl());
+            recordWindow.toFront();
+            recordWindow.setVisible(true);
+        });
+        exitOnlineWinBtn.setOnAction(e -> lvlChanger.startMenu());
     }
 
     public void setStatusHelp(boolean isOpenHelp, int num) {

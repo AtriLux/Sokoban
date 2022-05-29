@@ -9,15 +9,15 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="anchorPane" minHeight="800.0" minWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.sokoban.controllers.GameController">
+<AnchorPane fx:id="anchorPane" minHeight="800.0" minWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.sokoban.gameplay.controllers.GameController">
 
    <Pane fx:id="gameField" minHeight="770.0" minWidth="900.0" style="-fx-background-color: #222323;" />
 
-   <Pane fx:id="recordWindow" layoutX="266.0" layoutY="143.0" prefHeight="490.0" prefWidth="368.0" style="-fx-background-color: lightgrey; -fx-border-width: 5; -fx-border-color: darkgrey;" visible="false">
+   <Pane fx:id="recordWindow" layoutX="266.0" layoutY="143.0" prefHeight="490.0" prefWidth="368.0" styleClass="pane_dark" stylesheets="@style.css" visible="false">
       <Label alignment="TOP_LEFT" layoutX="22.0" layoutY="400.0" prefHeight="20.0" prefWidth="136.0" styleClass="text_small" stylesheets="@style.css" text="Введите свое имя:" />
       <Label alignment="CENTER" layoutX="9.0" layoutY="14.0" prefHeight="58.0" prefWidth="350.0" styleClass="text_large" stylesheets="@style.css" text="ТАБЛИЦА РЕКОРДОВ" />
-      <Button fx:id="undoRecordBtn" layoutX="37.0" layoutY="436.0" minHeight="30.0" minWidth="130.0" mnemonicParsing="false" stylesheets="@style.css" text="Назад" />
-      <Button fx:id="saveRecordBtn" layoutX="196.0" layoutY="436.0" maxWidth="115.0" minHeight="30.0" minWidth="130.0" mnemonicParsing="false" stylesheets="@style.css" text="Сохранить" />
+      <Button fx:id="undoRecordBtn" layoutX="37.0" layoutY="436.0" minHeight="30.0" minWidth="130.0" mnemonicParsing="false" styleClass="button_dark" stylesheets="@style.css" text="Назад" />
+      <Button fx:id="saveRecordBtn" layoutX="196.0" layoutY="436.0" maxWidth="115.0" minHeight="30.0" minWidth="130.0" mnemonicParsing="false" styleClass="button_dark" stylesheets="@style.css" text="Сохранить" />
       <TextField fx:id="nickTextField" layoutX="159.0" layoutY="397.0" prefHeight="25.0" prefWidth="184.0" />
       <VBox fx:id="recordTable" layoutX="22.0" layoutY="72.0" prefHeight="310.0" prefWidth="324.0" style="-fx-background-color: #222323; -fx-border-width: 5; -fx-border-color: darkgrey;">
          <HBox maxHeight="28.0" prefHeight="38.0" prefWidth="314.0" style="-fx-border-color: darkgrey;">
@@ -78,20 +78,20 @@
       </VBox>
    </Pane>
 
-   <Pane fx:id="winWindow" layoutX="275.0" layoutY="275.0" prefHeight="200.0" prefWidth="350.0" style="-fx-background-color: lightgrey; -fx-border-width: 5; -fx-border-color: darkgrey;" visible="false">
+   <Pane fx:id="winWindow" layoutX="275.0" layoutY="275.0" prefHeight="200.0" prefWidth="350.0" styleClass="pane_dark" stylesheets="@style.css" visible="false">
       <Label alignment="CENTER" layoutX="-1.0" layoutY="27.0" prefHeight="38.0" prefWidth="353.0" stylesheets="@style.css" text="Поздравляем!" />
       <Label alignment="CENTER" layoutY="71.0" prefHeight="58.0" prefWidth="350.0" styleClass="text_large" stylesheets="@style.css" text="ЗАГАДКА РЕШЕНА" />
-      <Button fx:id="resetWinBtn" layoutX="27.0" layoutY="145.0" minHeight="40.0" minWidth="90.0" mnemonicParsing="false" stylesheets="@style.css" text="Еще раз" />
-      <Button fx:id="nextWinBtn" layoutX="235.0" layoutY="145.0" minHeight="40.0" minWidth="90.0" mnemonicParsing="false" stylesheets="@style.css" text="Дальше" />
-      <Button fx:id="saveWinBtn" layoutX="133.0" layoutY="145.0" maxWidth="90.0" minHeight="40.0" minWidth="90.0" mnemonicParsing="false" styleClass="text_small" stylesheets="@style.css" text="Сохранить рекорд" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="resetWinBtn" layoutX="22.0" layoutY="145.0" minHeight="40.0" minWidth="90.0" mnemonicParsing="false" styleClass="button_dark" stylesheets="@style.css" text="Еще раз" />
+      <Button fx:id="nextWinBtn" layoutX="238.0" layoutY="145.0" minHeight="40.0" minWidth="90.0" mnemonicParsing="false" styleClass="button_dark" stylesheets="@style.css" text="Дальше" />
+      <Button fx:id="saveWinBtn" layoutX="127.0" layoutY="145.0" maxWidth="102.0" minHeight="40.0" minWidth="90.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" styleClass="button_dark" stylesheets="@style.css" text="Рекорды" textAlignment="CENTER" wrapText="true" />
    </Pane>
 
-   <Pane fx:id="menuWindow" layoutX="285.0" layoutY="185.0" prefHeight="350.0" prefWidth="350.0" style="-fx-background-color: lightgrey; -fx-border-width: 5; -fx-border-color: darkgrey;" visible="false">
+   <Pane fx:id="menuWindow" layoutX="285.0" layoutY="185.0" prefHeight="350.0" prefWidth="350.0" styleClass="pane_dark" stylesheets="@style.css" visible="false">
       <Label alignment="CENTER" layoutX="5.0" layoutY="32.0" prefHeight="38.0" prefWidth="341.0" styleClass="text_large" stylesheets="@style.css" text="ПАУЗА" />
-      <Button fx:id="resetMenuBtn" layoutX="90.0" layoutY="150.0" minHeight="40.0" minWidth="170.0" mnemonicParsing="false" stylesheets="@style.css" text="Начать заново" />
-      <Button fx:id="exitMenuBtn" layoutX="90.0" layoutY="270.0" minHeight="40.0" minWidth="170.0" mnemonicParsing="false" stylesheets="@style.css" text="Выход из игры" />
-      <Button fx:id="continueMenuBtn" layoutX="90.0" layoutY="90.0" minHeight="40.0" minWidth="170.0" mnemonicParsing="false" stylesheets="@style.css" text="Продолжить" />
-      <Button fx:id="mainMenuBtn" layoutX="90.0" layoutY="210.0" minHeight="40.0" minWidth="170.0" mnemonicParsing="false" stylesheets="@style.css" text="Главное меню" />
+      <Button fx:id="resetMenuBtn" layoutX="90.0" layoutY="150.0" minHeight="40.0" minWidth="170.0" mnemonicParsing="false" styleClass="button_dark" stylesheets="@style.css" text="Начать заново" />
+      <Button fx:id="exitMenuBtn" layoutX="90.0" layoutY="270.0" minHeight="40.0" minWidth="170.0" mnemonicParsing="false" styleClass="button_dark" stylesheets="@style.css" text="Выход из игры" />
+      <Button fx:id="continueMenuBtn" layoutX="90.0" layoutY="90.0" minHeight="40.0" minWidth="170.0" mnemonicParsing="false" styleClass="button_dark" stylesheets="@style.css" text="Продолжить" />
+      <Button fx:id="mainMenuBtn" layoutX="90.0" layoutY="210.0" minHeight="40.0" minWidth="170.0" mnemonicParsing="false" styleClass="button_dark" stylesheets="@style.css" text="Главное меню" />
    </Pane>
 
    <HBox id="HBox" alignment="CENTER_LEFT" layoutY="770.0" minHeight="30.0" minWidth="900.0" spacing="5.0" style="-fx-background-color: #222323;">
@@ -104,4 +104,19 @@
       </Pane>
       <Label fx:id="statusTurns" prefHeight="20.0" prefWidth="164.0" styleClass="text_small" stylesheets="@style.css" text="Ходов осталось:" textFill="WHITE" HBox.hgrow="NEVER" />
    </HBox>
+   <Pane fx:id="giveupWindow" layoutX="316.0" layoutY="275.0" prefHeight="200.0" prefWidth="274.0" styleClass="pane_dark" stylesheets="@style.css" visible="false">
+      <children>
+         <Label alignment="CENTER" layoutY="24.0" prefHeight="38.0" prefWidth="274.0" stylesheets="@style.css" text="Cдаться?" />
+         <Button fx:id="yesOnlineBtn" layoutX="86.0" layoutY="81.0" maxWidth="102.0" minHeight="40.0" minWidth="90.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" styleClass="button_dark" stylesheets="@style.css" text="Да" textAlignment="CENTER" wrapText="true" />
+         <Button fx:id="noOnlineBtn" layoutX="86.0" layoutY="139.0" maxWidth="102.0" minHeight="40.0" minWidth="90.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" styleClass="button_dark" stylesheets="@style.css" text="Нет" textAlignment="CENTER" wrapText="true" />
+      </children>
+   </Pane>
+   <Pane fx:id="winOnlineWindow" layoutX="285.0" layoutY="285.0" prefHeight="200.0" prefWidth="350.0" styleClass="pane_dark" stylesheets="@style.css" visible="false">
+      <children>
+         <Label alignment="CENTER" layoutX="-1.0" layoutY="27.0" prefHeight="38.0" prefWidth="353.0" stylesheets="@style.css" text="Поздравляем!" />
+         <Label alignment="CENTER" layoutY="71.0" prefHeight="58.0" prefWidth="350.0" styleClass="text_large" stylesheets="@style.css" text="ВЫ ПОБЕДИЛИ" />
+         <Button fx:id="exitOnlineWinBtn" layoutX="184.0" layoutY="145.0" minHeight="40.0" minWidth="150.0" mnemonicParsing="false" styleClass="button_dark" stylesheets="@style.css" text="Главное меню" />
+         <Button fx:id="saveOnlineWinBtn" layoutX="17.0" layoutY="145.0" maxWidth="102.0" minHeight="40.0" minWidth="150.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" styleClass="button_dark" stylesheets="@style.css" text="Рекорды" textAlignment="CENTER" wrapText="true" />
+      </children>
+   </Pane>
 </AnchorPane>

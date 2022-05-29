@@ -1,6 +1,6 @@
-package game.sokoban.elements;
+package game.sokoban.gameplay.elements;
 
-import game.sokoban.LvlChanger;
+import game.sokoban.gameplay.LvlChanger;
 import javafx.animation.TranslateTransition;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;

@@ -1,4 +1,4 @@
-package game.sokoban;
+package game.sokoban.gameplay;
 
 import javafx.application.Platform;
 import javafx.scene.control.Label;
@@ -8,13 +8,16 @@ public class Timers {
     int min = 0;
     boolean isActive = true;
 
-    public Timers(Label statusTimer) {
+    public Timers(Label statusTimer, LvlChanger lvlChanger) {
         Thread timer = new Thread(() -> {
             while(isActive) {
                 try {
                     Platform.runLater(() -> statusTimer.setText(" Время: " + setTime()));
                     Thread.sleep(1000);
-                    sec++;
+                    if (lvlChanger.isSingleGame()) {
+                        if (!lvlChanger.isOpenWindow())
+                            sec++;
+                    } else sec++;
                     if (sec == 60) {
                         sec = 0;
                         min++;

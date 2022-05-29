@@ -1,6 +1,6 @@
-package game.sokoban.elements;
+package game.sokoban.gameplay.elements;
 
-import game.sokoban.LvlChanger;
+import game.sokoban.gameplay.LvlChanger;
 import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
@@ -14,24 +14,24 @@ import java.util.Objects;
 
 public class Hero {
 
-    private int blockSize = Block.blockSize;
+    private final int blockSize = Block.blockSize;
     private int x, y;
     private int keyX, keyY;
     private int chestX, chestY;
-    private double errPos = 0.15*blockSize;
-    private int animTime = 100;
-    private Image redImg = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/tiles/tile_0164.png")), 0.7*blockSize, 0.7*blockSize, false, true);
-    private ImageView node;
-    private int turns;
+    private final int animTime = 100;
+    private final Image redImg = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/tiles/tile_0164.png")), 0.7*blockSize, 0.7*blockSize, false, true);
+    private final ImageView node;
+    private int turns = 1000;
     private boolean isKey = false;
 
-    public Hero(int posX, int posY, int countTurns, ImageView img) {
+    public Hero(int posX, int posY, int countTurns, ImageView img, LvlChanger lvlChanger) {
         x = posX;
         y = posY;
-        turns = countTurns;
+        if (lvlChanger.isSingleGame()) turns = countTurns;
         node = img;
-        node.setTranslateX(x * blockSize + errPos);
-        node.setTranslateY(y * blockSize + errPos);
+        node.setTranslateX(x * blockSize + 0.15 * blockSize);
+        node.setTranslateY(y * blockSize + 0.15 * blockSize);
+        lvlChanger.getGameController().setTurnsLeft(turns);
     }
 
     public void move(int posX, int posY, LvlChanger lvlChanger) {
@@ -46,7 +46,7 @@ public class Hero {
             }
             //check spikes
             for (Block spike : listSpike) {
-                if (posX == spike.getX() && posY == spike.getY()) {
+                if (posX == spike.getX() && posY == spike.getY() && isFree == 0) {
                     spikeAnimation(posX, posY);
                     turns--;
                 }
@@ -136,7 +136,7 @@ public class Hero {
         //show red hero
         FadeTransition damage = new FadeTransition(Duration.millis(animTime),node);
         damage.setDelay(Duration.millis(0.5*animTime));
-        damage.setToValue(0.8);
+        damage.setToValue(0.6);
         damage.setAutoReverse(true);
         damage.setCycleCount(2);
         damage.play();

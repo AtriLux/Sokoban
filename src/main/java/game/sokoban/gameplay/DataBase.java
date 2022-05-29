@@ -1,4 +1,4 @@
-package game.sokoban;
+package game.sokoban.gameplay;
 
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -16,12 +16,10 @@ public class DataBase {
     private String[] data;
 
     public DataBase() {
-        Statement statement = null;
-        Connection connection = null;
         try {
             Class.forName(DRIVER);
-            connection = DriverManager.getConnection(DB_URL, USER, PASS);
-            statement = connection.createStatement();
+            Connection connection = DriverManager.getConnection(DB_URL, USER, PASS);
+            Statement statement = connection.createStatement();
             statement.close();
             connection.close();
         } catch (Exception e) {
@@ -31,12 +29,10 @@ public class DataBase {
     }
 
     public void add(String nickname, int time, int numLvl) {
-        Connection c = null;
-        Statement statement = null;
         try {
             Class.forName(DRIVER);
-            c = DriverManager.getConnection(DB_URL, USER, PASS);
-            statement = c.createStatement();
+            Connection c = DriverManager.getConnection(DB_URL, USER, PASS);
+            Statement statement = c.createStatement();
 
             c.setAutoCommit(false);
             String sql = "INSERT INTO LEVEL" + numLvl + " (NICKNAME, TIME)"
@@ -52,12 +48,10 @@ public class DataBase {
     }
 
     private void writeToString(int numLvl) {
-        Connection c = null;
-        Statement stmt = null;
         try {
             Class.forName(DRIVER);
-            c = DriverManager.getConnection(DB_URL, USER, PASS);
-            stmt = c.createStatement();
+            Connection c = DriverManager.getConnection(DB_URL, USER, PASS);
+            Statement stmt = c.createStatement();
             c.setAutoCommit(false);
             data = new String[10];
             int i = 0;
@@ -87,7 +81,7 @@ public class DataBase {
             else {
                 nickname.setText("-");
                 time.setText("-");
-            };
+            }
         }
     }
 
