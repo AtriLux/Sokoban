@@ -23,6 +23,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -48,6 +50,7 @@ public class LvlChanger {
 
     private Timers timer;
     private final DataBase DB = new DataBase();
+    MediaPlayer player;
 
     private int numLvl = 0;
     private char[][] matrix;
@@ -74,6 +77,9 @@ public class LvlChanger {
     Image imgChest = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/tiles/tile_0057.png")), 0.7*blockSize, 0.7*blockSize, false, true);
     Image imgKey = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/tiles/tile_0090.png")), 0.4*blockSize, 0.4*blockSize, false, true);
 
+    Media mainTheme = new Media(Objects.requireNonNull(getClass().getResource("/sounds/mainTheme.mp3")).toString());
+    Media gameTheme = new Media(Objects.requireNonNull(getClass().getResource("/sounds/sound.mp3")).toString());
+
     LvlChanger(Stage primaryStage, Launcher launcher) {
         stage = primaryStage;
         stage.getIcons().add(imgChest);
@@ -82,6 +88,7 @@ public class LvlChanger {
 
     public void startMenu() {
         try {
+            playSound(mainTheme);
             FXMLLoader fxml = new FXMLLoader(Client1.class.getResource("menu.fxml"));
             Scene scene = new Scene(fxml.load(), WIDTH, HEIGHT);
             menuController = fxml.getController();
@@ -96,6 +103,7 @@ public class LvlChanger {
 
     public void startGame(int num) {
         try {
+            playSound(gameTheme);
             FXMLLoader fxml = new FXMLLoader(Client1.class.getResource("game.fxml"));
             Scene scene = new Scene(fxml.load(), WIDTH, HEIGHT);
             LvlChanger temp = this;
@@ -383,6 +391,14 @@ public class LvlChanger {
         elemBox.setTranslateX((WIDTH - gWidth) / 2d);
         elemBox.setTranslateY((HEIGHT - 50 - gHeight) / 2d);
         return elemBox;
+    }
+
+    public void playSound(Media sound) {
+        if (player != null) player.stop();
+        player = new MediaPlayer(sound);
+        player.setCycleCount(MediaPlayer.INDEFINITE);
+        player.setVolume(0.1);
+        player.play();
     }
 
     public void closeHelp() {

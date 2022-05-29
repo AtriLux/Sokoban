@@ -24,7 +24,7 @@ public class Launcher {
     public Launcher(Stage stage) {
         startSocket();
         javafx.scene.text.Font.loadFont(Objects.requireNonNull(getClass().getResource("/fonts/NineteenNinetyThree.ttf")).toExternalForm(), 16f);
-        stage.setTitle("Sokoban v. 0.8");
+        stage.setTitle("Sokoban v. 0.9");
         stage.setResizable(false);
         lvlChanger = new LvlChanger(stage, this);
         lvlChanger.startMenu();

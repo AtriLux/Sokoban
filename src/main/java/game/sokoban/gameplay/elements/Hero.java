@@ -7,6 +7,9 @@ import javafx.animation.TranslateTransition;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
@@ -23,6 +26,13 @@ public class Hero {
     private final ImageView node;
     private int turns = 1000;
     private boolean isKey = false;
+
+    private MediaPlayer player;
+    private final Media move = new Media(Objects.requireNonNull(getClass().getResource("/sounds/move.wav")).toString());
+    private final Media moveSpike = new Media(Objects.requireNonNull(getClass().getResource("/sounds/moveSpike.wav")).toString());
+    private final Media moveChest = new Media(Objects.requireNonNull(getClass().getResource("/sounds/moveChest.mp3")).toString());
+    private final Media kick = new Media(Objects.requireNonNull(getClass().getResource("/sounds/kick.wav")).toString());
+    private final Media gameOver = new Media(Objects.requireNonNull(getClass().getResource("/sounds/gameover.mp3")).toString());
 
     public Hero(int posX, int posY, int countTurns, ImageView img, LvlChanger lvlChanger) {
         x = posX;
@@ -49,12 +59,14 @@ public class Hero {
                 if (posX == spike.getX() && posY == spike.getY() && isFree == 0) {
                     spikeAnimation(posX, posY);
                     turns--;
+                    playSound(moveSpike);
                 }
             }
             //check chest if hero has key
             if (posX == chestX && posY == chestY && isKey) {
                 Pane pane = (Pane) lvlChanger.getGameController().getGameField().getChildren().get(1);
                 pane.getChildren().remove(lvlChanger.getChest());
+                playSound(moveChest);
             }
             //check chest if hero hasn't key
             if (posX == chestX && posY == chestY && !isKey) {
@@ -65,19 +77,27 @@ public class Hero {
                 isKey = true;
                 Pane pane = (Pane) lvlChanger.getGameController().getGameField().getChildren().get(1);
                 pane.getChildren().remove(lvlChanger.getKey());
+                playSound(moveChest);
             }
-            //if free hero move
+            //if free then hero moves
             if (isFree == 0 && matrix[posX][posY] == '0') {
                 moveAnimation(posX, posY, blockSize, animTime, false, node);
                 x = posX;
                 y = posY;
+                playSound(move);
             }
             else if (matrix[posX][posY] == 'e' || matrix[posX][posY] == 'E') winAnimation(posX, posY, lvlChanger);
-            else kickAnimation(posX,posY);
+            else {
+                playSound(kick);
+                kickAnimation(posX,posY);
+            }
             turns--;
             lvlChanger.getGameController().setTurnsLeft(turns);
         }
-        else lvlChanger.loseLvl();
+        else {
+            lvlChanger.loseLvl();
+            playSound(gameOver);
+        }
     }
 
     public int checkBlock(int posX, int posY, Block block, LvlChanger lvlChanger) {
@@ -159,6 +179,11 @@ public class Hero {
         anim1.setToValue(0.0);
         anim1.play();
         anim1.setOnFinished(e -> lvlChanger.winLvl());
+    }
+
+    private void playSound(Media sound) {
+        player = new MediaPlayer(sound);
+        player.play();
     }
 
     public int getX() { return x; }

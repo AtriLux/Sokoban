@@ -10,40 +10,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6241d32-75be-4eba-a85b-5f0dbe1be811" name="Changes" comment="start long way">
-      <change afterPath="$PROJECT_DIR$/levelConfig/blocks/0.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/levelConfig/maps/0.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/Client1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/Client2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/clientServer/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/clientServer/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/Launcher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sounds/gameover.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sounds/kick.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sounds/mainTheme.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sounds/move.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sounds/move.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sounds/moveChest.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sounds/moveSpike.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sounds/sound.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/LvlChanger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/LvlChanger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/Timers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/Timers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/controllers/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/controllers/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/elements/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/elements/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/elements/Hero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/levelConfig/blocks/0.conf" beforeDir="false" afterPath="$PROJECT_DIR$/levelConfig/blocks/0.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/levelConfig/maps/0.conf" beforeDir="false" afterPath="$PROJECT_DIR$/levelConfig/maps/0.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/LvlChanger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/LvlChanger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/elements/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/elements/Hero.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/game/sokoban/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game/sokoban/game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/game/sokoban/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game/sokoban/menu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/game/sokoban/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game/sokoban/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/DataBase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/LvlChanger$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/LvlChanger.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/Timers.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/controllers/GameController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/controllers/MenuController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/elements/Block.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/elements/Hero.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/menu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/clientServer/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/clientServer/Message.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/clientServer/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/clientServer/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/DataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/Launcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/Launcher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/LvlChanger$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/LvlChanger$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/LvlChanger.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/LvlChanger.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/controllers/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/controllers/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/controllers/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/controllers/MenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/elements/Hero.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/elements/Hero.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -120,7 +109,7 @@
       <recent name="game.sokoban.elements" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Client2">
+  <component name="RunManager" selected="Application.Client1">
     <configuration name="Client1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="game.sokoban.Client1" />
       <module name="sokoban" />
@@ -178,8 +167,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Client2" />
         <item itemvalue="Application.Client1" />
+        <item itemvalue="Application.Client2" />
         <item itemvalue="Application.Server" />
       </list>
     </recent_temporary>
@@ -217,7 +206,8 @@
       <workItem from="1653670955686" duration="573000" />
       <workItem from="1653719115267" duration="9367000" />
       <workItem from="1653735252163" duration="9878000" />
-      <workItem from="1653803421695" duration="7635000" />
+      <workItem from="1653803421695" duration="8101000" />
+      <workItem from="1653819019151" duration="6124000" />
     </task>
     <task id="LOCAL-00001" summary="start long way">
       <created>1652176686182</created>
