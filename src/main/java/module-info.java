@@ -17,8 +17,10 @@ module game.sokoban {
     opens game.sokoban.gameplay.elements to javafx.fxml;
     exports game.sokoban.gameplay.controllers;
     opens game.sokoban.gameplay.controllers to javafx.fxml;
-    exports game.sokoban.clientServer;
-    opens game.sokoban.clientServer to javafx.fxml;
+    exports game.sokoban.gameplay.services.clientServer;
+    opens game.sokoban.gameplay.services.clientServer to javafx.fxml;
     exports game.sokoban.gameplay;
     opens game.sokoban.gameplay to javafx.fxml;
+    exports game.sokoban.gameplay.services;
+    opens game.sokoban.gameplay.services to javafx.fxml;
 }

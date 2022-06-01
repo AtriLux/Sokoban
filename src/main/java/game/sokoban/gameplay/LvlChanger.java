@@ -1,11 +1,13 @@
 package game.sokoban.gameplay;
 
 import game.sokoban.Client1;
-import game.sokoban.clientServer.Message;
+import game.sokoban.gameplay.services.clientServer.Message;
 import game.sokoban.gameplay.controllers.GameController;
 import game.sokoban.gameplay.controllers.MenuController;
-import game.sokoban.gameplay.elements.Hero;
-import game.sokoban.gameplay.elements.Block;
+import game.sokoban.gameplay.elements.*;
+import game.sokoban.gameplay.services.DataBase;
+import game.sokoban.gameplay.services.Sounds;
+import game.sokoban.gameplay.services.Timers;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -23,8 +25,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -50,7 +50,7 @@ public class LvlChanger {
 
     private Timers timer;
     private final DataBase DB = new DataBase();
-    MediaPlayer player;
+    private final Sounds player = new Sounds();
 
     private int numLvl = 0;
     private char[][] matrix;
@@ -77,9 +77,6 @@ public class LvlChanger {
     Image imgChest = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/tiles/tile_0057.png")), 0.7*blockSize, 0.7*blockSize, false, true);
     Image imgKey = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/tiles/tile_0090.png")), 0.4*blockSize, 0.4*blockSize, false, true);
 
-    Media mainTheme = new Media(Objects.requireNonNull(getClass().getResource("/sounds/mainTheme.mp3")).toString());
-    Media gameTheme = new Media(Objects.requireNonNull(getClass().getResource("/sounds/sound.mp3")).toString());
-
     LvlChanger(Stage primaryStage, Launcher launcher) {
         stage = primaryStage;
         stage.getIcons().add(imgChest);
@@ -88,12 +85,13 @@ public class LvlChanger {
 
     public void startMenu() {
         try {
-            playSound(mainTheme);
+            player.playMainMusic();
             FXMLLoader fxml = new FXMLLoader(Client1.class.getResource("menu.fxml"));
             Scene scene = new Scene(fxml.load(), WIDTH, HEIGHT);
             menuController = fxml.getController();
             menuController.initialize(this, launcher);
             if (!launcher.isSocketActive()) menuController.setDisableOnlineBtn();
+            if (!DB.isActive()) menuController.setDisableRecordBtn();
             stage.setScene(scene);
         }
         catch (IOException e) {
@@ -103,7 +101,7 @@ public class LvlChanger {
 
     public void startGame(int num) {
         try {
-            playSound(gameTheme);
+            player.playGameMusic();
             FXMLLoader fxml = new FXMLLoader(Client1.class.getResource("game.fxml"));
             Scene scene = new Scene(fxml.load(), WIDTH, HEIGHT);
             LvlChanger temp = this;
@@ -141,7 +139,7 @@ public class LvlChanger {
                         break;
                     case R:
                         if (isSingleGame) timer.stop();
-                        restartLvl(controller.getGameField());
+                        resetLvl(true);
                         break;
                     case H:
                         if (isSingleGame) {
@@ -167,7 +165,7 @@ public class LvlChanger {
         timer.stop();
         reverseOpenWindow();
         closeHelp();
-        gameController.getSaveWinBtn().setDisable(numLvl <= 0);
+        gameController.getSaveWinBtn().setDisable(numLvl == 0 || !DB.isActive()); // if lvl0 or DB isn't active
         if (isSingleGame) { // single
             gameController.getWinWindow().toFront();
             gameController.getWinWindow().setVisible(true);
@@ -192,7 +190,6 @@ public class LvlChanger {
         DB.writeToTable(table, numLvl);
     }
 
-
     public void clearRecordTable(VBox table) {
         for (int i = 0; i < 10; i++) {
             HBox line = (HBox) table.getChildren().get(i + 1);
@@ -203,7 +200,7 @@ public class LvlChanger {
         }
     }
 
-    public void loseLvl() {
+    public void resetLvl(boolean isRestart) {
         Rectangle rct = new Rectangle(0, 0, WIDTH, HEIGHT);
         rct.setFill(Color.WHITE);
         gameController.getAnchorPane().getChildren().add(rct);
@@ -215,7 +212,9 @@ public class LvlChanger {
 
         anim.setOnFinished(e -> {
             timer.stop();
-            loadLvl(gameController.getGameField(), numLvl);
+            if (isRestart)
+                restartLvl(gameController.getGameField());
+            else loadLvl(gameController.getGameField(), numLvl);
             FadeTransition anim1 = new FadeTransition(Duration.millis(1500),rct);
             anim1.setFromValue(1.0);
             anim1.setToValue(0.0);
@@ -238,7 +237,7 @@ public class LvlChanger {
     public void loadLvl(Pane field, int num) {
         clearLvl(field);
         numLvl = num;
-        if (numLvl == 6) startMenu(); //TODO win game
+        if (numLvl == 6) startMenu();
         else {
             //create map
             File fileMap = new File("levelConfig/maps/" + numLvl + ".conf");
@@ -262,14 +261,13 @@ public class LvlChanger {
 
     public GridPane createGameField(File fileMap) {
         try {
+            //find matrix height
             BufferedReader inLen = new BufferedReader((new FileReader(fileMap.getAbsoluteFile())));
             int i = 0;
-            while (inLen.readLine() != null) {
-                i++;
-            }
+            while (inLen.readLine() != null) i++;
             matrix = new char[i][];
             inLen.close();
-
+            //create matrix
             BufferedReader in = new BufferedReader((new FileReader(fileMap.getAbsoluteFile())));
             String str;
             int j = 0;
@@ -391,14 +389,6 @@ public class LvlChanger {
         elemBox.setTranslateX((WIDTH - gWidth) / 2d);
         elemBox.setTranslateY((HEIGHT - 50 - gHeight) / 2d);
         return elemBox;
-    }
-
-    public void playSound(Media sound) {
-        if (player != null) player.stop();
-        player = new MediaPlayer(sound);
-        player.setCycleCount(MediaPlayer.INDEFINITE);
-        player.setVolume(0.1);
-        player.play();
     }
 
     public void closeHelp() {

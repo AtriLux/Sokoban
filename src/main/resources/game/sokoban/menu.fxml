@@ -32,59 +32,59 @@
       <Button fx:id="undoRecordBtn" layoutX="360.0" layoutY="341.0" minHeight="30.0" minWidth="120.0" mnemonicParsing="false" stylesheets="@style.css" text="Назад" />
       <VBox fx:id="recordTable" layoutX="22.0" layoutY="72.0" prefHeight="310.0" prefWidth="324.0" styleClass="pane" stylesheets="@style.css">
          <HBox maxHeight="28.0" prefHeight="38.0" prefWidth="314.0" style="-fx-border-color: #775c2a;">
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" styleClass="hbox" stylesheets="@style.css" text="№"/>
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="НИКНЕЙМ"/>
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="ВРЕМЯ (СЕК)"/>
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" styleClass="hbox" stylesheets="@style.css" text="№" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="НИКНЕЙМ" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="ВРЕМЯ (СЕК)" />
          </HBox>
          <HBox maxHeight="28.0" prefHeight="38.0" prefWidth="314.0" style="-fx-border-color: #775c2a;">
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" styleClass="hbox" stylesheets="@style.css" text="1"/>
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-"/>
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-"/>
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" styleClass="hbox" stylesheets="@style.css" text="1" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-" />
          </HBox>
          <HBox maxHeight="28.0" prefHeight="38.0" prefWidth="314.0" style="-fx-border-color: #775c2a;">
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" styleClass="hbox" stylesheets="@style.css" text="2" textAlignment="CENTER"/>
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-"/>
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-"/>
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" styleClass="hbox" stylesheets="@style.css" text="2" textAlignment="CENTER" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-" />
          </HBox>
          <HBox maxHeight="28.0" prefHeight="38.0" prefWidth="314.0" style="-fx-border-color: #775c2a;">
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" styleClass="hbox" stylesheets="@style.css" text="3" textAlignment="CENTER"/>
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-"/>
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-"/>
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" styleClass="hbox" stylesheets="@style.css" text="3" textAlignment="CENTER" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-" />
          </HBox>
          <HBox maxHeight="28.0" prefHeight="38.0" prefWidth="314.0" style="-fx-border-color: #775c2a;">
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" styleClass="hbox" stylesheets="@style.css" text="4" textAlignment="CENTER"/>
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-"/>
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-"/>
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" styleClass="hbox" stylesheets="@style.css" text="4" textAlignment="CENTER" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-" />
          </HBox>
          <HBox maxHeight="28.0" prefHeight="38.0" prefWidth="314.0" style="-fx-border-color: #775c2a;">
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" styleClass="hbox" stylesheets="@style.css" text="5"/>
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-"/>
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-"/>
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" styleClass="hbox" stylesheets="@style.css" text="5" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-" />
          </HBox>
          <HBox maxHeight="28.0" prefHeight="38.0" prefWidth="314.0" style="-fx-border-color: #775c2a;">
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" styleClass="hbox" stylesheets="@style.css" text="6"/>
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-"/>
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-"/>
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" styleClass="hbox" stylesheets="@style.css" text="6" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-" />
          </HBox>
          <HBox maxHeight="28.0" prefHeight="38.0" prefWidth="314.0" style="-fx-border-color: #775c2a;">
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" styleClass="hbox" stylesheets="@style.css" text="7"/>
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-"/>
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-"/>
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" styleClass="hbox" stylesheets="@style.css" text="7" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-" />
          </HBox>
          <HBox maxHeight="28.0" prefHeight="38.0" prefWidth="314.0" style="-fx-border-color: #775c2a;">
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" styleClass="hbox" stylesheets="@style.css" text="8"/>
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-"/>
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-"/>
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" styleClass="hbox" stylesheets="@style.css" text="8" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-" />
          </HBox>
          <HBox maxHeight="28.0" prefHeight="38.0" prefWidth="314.0" style="-fx-border-color: #775c2a;">
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" styleClass="hbox" stylesheets="@style.css" text="9"/>
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-"/>
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-"/>
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" styleClass="hbox" stylesheets="@style.css" text="9" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-" />
          </HBox>
          <HBox maxHeight="28.0" prefHeight="38.0" prefWidth="314.0" style="-fx-border-color: #775c2a;">
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" styleClass="hbox" stylesheets="@style.css" text="10"/>
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-"/>
-            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-"/>
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="24.0" minWidth="24.0" styleClass="hbox" stylesheets="@style.css" text="10" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-" />
+            <Label alignment="CENTER" maxHeight="28.0" maxWidth="150.0" minWidth="24.0" prefHeight="26.0" prefWidth="150.0" styleClass="hbox" stylesheets="@style.css" text="-" />
          </HBox>
       </VBox>
       <Button fx:id="recordBtn1" layoutX="375.0" layoutY="80.0" minHeight="45.0" minWidth="90.0" mnemonicParsing="false" stylesheets="@style.css" text="1" />
@@ -105,4 +105,5 @@
          <Label fx:id="onlineLabel" alignment="CENTER" layoutX="14.0" layoutY="15.0" prefHeight="32.0" prefWidth="250.0" stylesheets="@style.css" text="Поиск соперника..." />
       </children>
    </Pane>
+   <Label alignment="CENTER" layoutX="-2.0" layoutY="7.0" prefHeight="16.0" prefWidth="900.0" style="-fx-text-fill: #c4bb8c;" styleClass="text_small" stylesheets="@style.css" text="Интеллектуальная собственность без прав, но с большими амбициями. Относитесь с уважением! © М. К. Сивирилова, НГТУ, 2022" />
 </Pane>

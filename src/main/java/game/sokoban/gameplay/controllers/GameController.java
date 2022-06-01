@@ -1,6 +1,6 @@
 package game.sokoban.gameplay.controllers;
 
-import game.sokoban.clientServer.Message;
+import game.sokoban.gameplay.services.clientServer.Message;
 import game.sokoban.gameplay.Launcher;
 import game.sokoban.gameplay.LvlChanger;
 import javafx.fxml.FXML;
@@ -98,11 +98,11 @@ public class GameController {
             recordWindow.setVisible(false);
         });
         saveRecordBtn.setOnAction(e -> {
-            if (!nickTextField.getText().equals("") && !nickTextField.getText().contains(" ")) {
+            if (!nickTextField.getText().equals("")) {
                 lvlChanger.saveRecordDB(nickTextField.getText(), recordTable);
                 saveRecordBtn.setDisable(true);
             }
-            else nickTextField.setText("введите имя (без пробелов)!");
+            else nickTextField.setText("введите имя");
         });
         nickTextField.setOnMouseClicked(e -> {
             if (nickTextField.getText().equals("введите имя (без пробелов)!")) nickTextField.setText("");
@@ -159,7 +159,10 @@ public class GameController {
                 int i = 1;
                 String str;
                 while ((str = in.readLine()) != null) {
-                    if (i == num) statusHelp.setText(str);
+                    if (i == num) {
+                        statusHelp.setText(str);
+                        break;
+                    }
                     i++;
                 }
                 in.close();

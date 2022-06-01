@@ -10,28 +10,57 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6241d32-75be-4eba-a85b-5f0dbe1be811" name="Changes" comment="start long way">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sounds/gameover.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sounds/kick.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sounds/mainTheme.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sounds/move.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sounds/move.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sounds/moveChest.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sounds/moveSpike.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sounds/sound.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/services/Sounds.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/gitTitle.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/~$Отчет.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Отчет.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE/client-server.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/levelConfig/blocks/0.conf" beforeDir="false" afterPath="$PROJECT_DIR$/levelConfig/blocks/0.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/levelConfig/maps/0.conf" beforeDir="false" afterPath="$PROJECT_DIR$/levelConfig/maps/0.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/sokoban/sokoban.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/sokoban_jar/bootstrapfx-core-0.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/sokoban_jar/controlsfx-11.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/sokoban_jar/formsfx-core-11.3.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/sokoban_jar/ikonli-core-12.2.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/sokoban_jar/ikonli-javafx-12.2.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/sokoban_jar/javafx-base-17.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/sokoban_jar/javafx-base-17.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/sokoban_jar/javafx-controls-17.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/sokoban_jar/javafx-controls-17.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/sokoban_jar/javafx-fxml-17.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/sokoban_jar/javafx-fxml-17.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/sokoban_jar/javafx-graphics-17.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/sokoban_jar/javafx-graphics-17.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/sokoban_jar/javafx-media-17.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/sokoban_jar/javafx-media-17.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/sokoban_jar/javafx-web-17.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/sokoban_jar/javafx-web-17.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/sokoban_jar/sokoban.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/sokoban_jar/tilesfx-11.48.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/sokoban_jar/validatorfx-0.1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/clientServer/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/services/clientServer/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/clientServer/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/services/clientServer/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/services/DataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/Launcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/LvlChanger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/LvlChanger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/Timers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/services/Timers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/controllers/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/controllers/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/elements/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/elements/Block.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/elements/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/sokoban/gameplay/elements/Hero.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/clientServer/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/clientServer/Message.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/clientServer/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/clientServer/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/DataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/game/sokoban/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/game/sokoban/menu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/clientServer/Message.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/clientServer/Server.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/DataBase.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/Launcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/Launcher.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/LvlChanger$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/LvlChanger$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/LvlChanger.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/LvlChanger.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/Timers.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/controllers/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/controllers/GameController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/controllers/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/controllers/MenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/elements/Block.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/elements/Block.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/elements/Hero.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/sokoban/gameplay/elements/Hero.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
@@ -109,13 +138,13 @@
       <recent name="game.sokoban.elements" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Client1">
+  <component name="RunManager" selected="Application.Client2">
     <configuration name="Client1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="game.sokoban.Client1" />
       <module name="sokoban" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="game.sokoban.clientServer.*" />
+          <option name="PATTERN" value="game.sokoban.gameplay.services.clientServer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -128,7 +157,7 @@
       <module name="sokoban" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="game.sokoban.clientServer.*" />
+          <option name="PATTERN" value="game.sokoban.gameplay.services.clientServer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -137,11 +166,11 @@
       </method>
     </configuration>
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="game.sokoban.clientServer.Server" />
+      <option name="MAIN_CLASS_NAME" value="game.sokoban.gameplay.services.clientServer.Server" />
       <module name="sokoban" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="game.sokoban.clientServer.*" />
+          <option name="PATTERN" value="game.sokoban.gameplay.services.clientServer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -167,8 +196,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Client1" />
         <item itemvalue="Application.Client2" />
+        <item itemvalue="Application.Client1" />
         <item itemvalue="Application.Server" />
       </list>
     </recent_temporary>
@@ -207,7 +236,12 @@
       <workItem from="1653719115267" duration="9367000" />
       <workItem from="1653735252163" duration="9878000" />
       <workItem from="1653803421695" duration="8101000" />
-      <workItem from="1653819019151" duration="6124000" />
+      <workItem from="1653819019151" duration="7778000" />
+      <workItem from="1653832318855" duration="294000" />
+      <workItem from="1653843826175" duration="1497000" />
+      <workItem from="1653897459366" duration="4300000" />
+      <workItem from="1654068118305" duration="5667000" />
+      <workItem from="1654077041413" duration="5761000" />
     </task>
     <task id="LOCAL-00001" summary="start long way">
       <created>1652176686182</created>

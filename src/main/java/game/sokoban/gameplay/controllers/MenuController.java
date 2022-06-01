@@ -1,6 +1,6 @@
 package game.sokoban.gameplay.controllers;
 
-import game.sokoban.clientServer.Message;
+import game.sokoban.gameplay.services.clientServer.Message;
 import game.sokoban.gameplay.Launcher;
 import game.sokoban.gameplay.LvlChanger;
 import javafx.application.Platform;
@@ -170,4 +170,5 @@ public class MenuController {
     }
 
     public void setDisableOnlineBtn() { onlineBtn.setDisable(true); }
+    public void setDisableRecordBtn() { recordBtn.setDisable(true); }
 }

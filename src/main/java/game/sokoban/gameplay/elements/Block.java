@@ -45,25 +45,17 @@ public class Block {
             x = posX;
             y = posY;
         }
-        else if (matrix[posX][posY] != 0 && type.equals("Enemy")) kill();
+        else if (matrix[posX][posY] != '0' && type.equals("Enemy") && isFree) kill();
     }
 
     private void moveAnimation(int posX, int posY, LvlChanger lvlChanger) {
         TranslateTransition anim = new TranslateTransition();
         anim.setDuration(Duration.millis(lvlChanger.getHero().getAnimTime()));
         anim.setNode(node);
-        if (posX < x) {
-            anim.setByX(-blockSize);
-        }
-        if (posX > x) {
-            anim.setByX(blockSize);
-        }
-        if (posY < y) {
-            anim.setByY(-blockSize);
-        }
-        if (posY > y) {
-            anim.setByY(blockSize);
-        }
+        if (posX < x) anim.setByX(-blockSize);
+        if (posX > x) anim.setByX(blockSize);
+        if (posY < y) anim.setByY(-blockSize);
+        if (posY > y) anim.setByY(blockSize);
         anim.play();
     }
 
