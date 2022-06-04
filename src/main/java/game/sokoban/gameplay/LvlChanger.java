@@ -35,6 +35,7 @@ import static javafx.scene.input.KeyCode.ESCAPE;
 
 public class LvlChanger {
 
+    private final Launcher launcher;
     private final Stage stage;
     private final int blockSize = Block.blockSize;
     private final double errPos = 0.15*blockSize;
@@ -43,7 +44,6 @@ public class LvlChanger {
     private int gWidth, gHeight;
     private MenuController menuController;
     private GameController gameController;
-    private final Launcher launcher;
     private boolean isOpenWindow = false;
     private boolean isOpenHelp = false;
     private boolean isSingleGame = true;

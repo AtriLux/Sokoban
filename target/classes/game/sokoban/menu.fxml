@@ -8,7 +8,8 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane minHeight="800.0" minWidth="900.0" style="-fx-background-image: url(https://repository-images.githubusercontent.com/191390728/aa696780-8c69-11e9-84b1-687f30a61b27); -fx-background-repeat: stretch; -fx-background-size: 900 800;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.sokoban.gameplay.controllers.MenuController">
+<Pane minHeight="800.0" minWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.sokoban.gameplay.controllers.MenuController">
+   <ImageView fitHeight="800.0" fitWidth="900.0"><Image url="@../../images/mainMenu.gif"/></ImageView>
    <Pane fx:id="btnPane" layoutX="340.0" layoutY="480.0" prefHeight="280.0" prefWidth="220.0">
       <Button fx:id="onlineBtn" layoutY="120.0" minHeight="40.0" minWidth="220.0" mnemonicParsing="false" stylesheets="@style.css" text="Соревнование" />
       <Button fx:id="lvlBtn" layoutY="60.0" minHeight="40.0" minWidth="220.0" mnemonicParsing="false" stylesheets="@style.css" text="Выбрать уровень" />

@@ -8,7 +8,7 @@ import java.util.Objects;
 public class Sounds {
 
     private MediaPlayer player;
-    private final Media mainTheme = new Media(Objects.requireNonNull(getClass().getResource("/sounds/mainTheme.mp3")).toString());
+    private final Media mainTheme = new Media(Objects.requireNonNull(getClass().getResource("/sounds/mainTheme.m4a")).toString());
     private final Media gameTheme = new Media(Objects.requireNonNull(getClass().getResource("/sounds/sound.mp3")).toString());
     private final Media move = new Media(Objects.requireNonNull(getClass().getResource("/sounds/move.wav")).toString());
     private final Media moveSpike = new Media(Objects.requireNonNull(getClass().getResource("/sounds/moveSpike.wav")).toString());
